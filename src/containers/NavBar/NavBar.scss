@@ -1,0 +1,22 @@
+@import "../../index.scss";
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  background: $primary-blue;
+  font: normal normal bold 1.5rem/3rem 'Free Sans', sans-serif;
+  color: white;
+
+  button {
+    background: $primary-blue;
+    border: none;
+    outline:none;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0 1rem;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+}
