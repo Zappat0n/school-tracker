@@ -2,6 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  redirect: '',
 };
 
 export const userSlice = createSlice({
@@ -14,9 +15,12 @@ export const userSlice = createSlice({
       state.password = password;
       state.token = token;
     },
+    addRedirect: (state, action) => {
+      state.redirect = action.payload;
+    },
   },
 });
 
-export const { save } = userSlice.actions;
+export const { addRedirect, save } = userSlice.actions;
 
 export default userSlice.reducer;
