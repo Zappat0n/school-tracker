@@ -1,19 +1,59 @@
-export const getBooksRequest = () => new Request(
-  'https://infinite-woodland-11668.herokuapp.com/books/index/',
+require('dotenv').config();
+
+export const signUpRequest = (email, password) => new Request(
+  `${process.env.REACT_APP_SERVER}/users/`,
   {
-    method: 'GET',
-    mode: 'no-cors',
+    method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'content-type': 'application/json',
     },
+    body: `{
+      "email" : "${email}",
+      "password" : "${password}",
+      "client_id" : "${process.env.REACT_APP_CLIENT_ID}"
+    }`,
   },
 );
 
-export const createBookRequest = (book) => new Request(
-  `https://infinite-woodland-11668.herokuapp.com/books?title=${book.title}&author=${book.author}&category=${book.category}`,
+export const logInRequest = (email, password) => new Request(
+  `${process.env.REACT_APP_SERVER}/oauth/token/`,
   {
-    mode: 'no-cors',
     method: 'POST',
+    headers: {
+      'content-Type': 'application/json',
+    },
+    body: `{
+      "grant_type" : "password",
+      "email" : "${email}",
+      "password" : "${password}",
+      "client_id" : "${process.env.REACT_APP_CLIENT_ID}",
+      "client_secret" : "${process.env.REACT_APP_CLIENT_SECRET}"
+    }`,
+  },
+);
+
+export const logOutRequest = (token, username, password) => new Request(
+  `${process.env.REACT_APP_SERVER}/oauth/revoke`,
+  {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${Buffer.from(`${username}:${password}`).toString('base64')}`,
+    },
+    body: JSON.stringify({
+      token,
+      client_id: process.env.REACT_APP_CLIENT_ID,
+      client_secret: process.env.REACT_APP_CLIENT_SECRET,
+    }),
+  },
+);
+
+export const getClassrooms = (token) => new Request(
+  `${process.env.REACT_APP_SERVER}/classrooms/index`,
+  {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${Buffer.from(`${token}`).toString('base64')}`,
+    },
   },
 );
 

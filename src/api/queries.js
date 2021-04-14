@@ -1,4 +1,4 @@
-import { getBooksRequest, createBookRequest, deleteBookRequest } from './requests';
+import { signUpRequest, logInRequest, logOutRequest } from './requests';
 
 const displayError = (error) => {
   const container = document.querySelector('.errors');
@@ -16,23 +16,25 @@ const displayError = (error) => {
 async function query(request) {
   try {
     const response = await fetch(request);
-    return (response ? response.json() : response);
+    const json = await response.json();
+    return json;
   } catch (error) {
     displayError(error);
     return null;
   }
 }
 
-async function getBooks() {
-  return query(getBooksRequest());
+async function logIn(email, password) {
+  return query(logInRequest(email, password));
 }
 
-async function createBook(book) {
-  return query(createBookRequest(book));
+async function signUp(email, password) {
+  const response = await query(signUpRequest(email, password));
+  return response;
 }
 
-async function deleteBook(title) {
-  return query(deleteBookRequest(title));
+async function logOut(token, username, password) {
+  return query(logOutRequest(token, username, password));
 }
 
-export { getBooks, createBook, deleteBook };
+export { logIn, signUp, logOut };
