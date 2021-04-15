@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { logIn, signUp } from '../../api/queries';
-import { save } from '../../slices/userSlice';
+import { changeTitle, save } from '../../slices/userSlice';
 
 const UserForm = (props) => {
   const { action } = props;
   const history = useHistory();
   const dispatch = useDispatch();
+  dispatch(changeTitle(action));
 
   async function getLogIn(email, password) {
     const response = await logIn(email, password);

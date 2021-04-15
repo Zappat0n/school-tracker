@@ -6,7 +6,7 @@ const Classrooms = () => {
 
   return (
     <>
-      <Table tableName="classrooms" id={id} />
+      <Table tableName="classrooms" id={id} title={id ? 'Students' : 'Classrooms'} />
     </>
   );
 };

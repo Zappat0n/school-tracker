@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   tables: {},
+  title: '',
 };
 
 export const userSlice = createSlice({
@@ -15,6 +16,9 @@ export const userSlice = createSlice({
       state.password = password;
       state.token = token;
     },
+    changeTitle: (state, action) => {
+      state.title = action.payload;
+    },
     addTable: (state, action) => {
       const { tableName, headers, data } = action.payload;
       state.tables[tableName] = { headers, data };
@@ -22,6 +26,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { addTable, save } = userSlice.actions;
+export const { addTable, changeTitle, save } = userSlice.actions;
 
 export default userSlice.reducer;
