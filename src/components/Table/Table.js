@@ -10,7 +10,7 @@ const Table = ({ tableName }) => {
   async function query() {
     if (!token) return;
     const response = await requestTable(tableName, token);
-    if (response.data && response.function) dispatch(response.function(response));
+    if (response && response.data && response.function) dispatch(response.function(response));
   }
 
   if (!table) query();

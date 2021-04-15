@@ -35,7 +35,7 @@ const UserForm = (props) => {
     if (action === 'Log In') {
       const response = await getLogIn(email.value, password.value);
       if (response) {
-        dispatch(addRedirect('/index/'));
+        dispatch(addRedirect('/students/'));
       }
     } else if (getSignUp(email.value, password.value)) {
       return <Redirect to="/index/" />;

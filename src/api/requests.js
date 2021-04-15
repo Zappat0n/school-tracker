@@ -56,10 +56,3 @@ export const getIndexRequest = (token, controller) => new Request(
     },
   },
 );
-
-export const deleteBookRequest = (title) => new Request(
-  `https://infinite-woodland-11668.herokuapp.com/books?title=${title}`,
-  {
-    method: 'DELETE',
-  },
-);

@@ -14,7 +14,7 @@ const Routes = () => (
     <Switch>
       <Route path="/index/"><Index /></Route>
       <Route path="/user/signin"><SignIn /></Route>
-      <Route path="/user/signin"><Students /></Route>
+      <Route path="/students"><Students /></Route>
     </Switch>
   </BrowserRouter>
 );
