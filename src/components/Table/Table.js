@@ -1,16 +1,19 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import requestTable from './TableQueries';
 import { addTable } from '../../slices/userSlice';
 
-const Table = ({ tableName }) => {
-  const table = useSelector((state) => state.user.tables[tableName]);
+const Table = ({ tableName, id }) => {
+  const request = `${tableName}${id ? `/${id}` : ''}`;
+  const table = useSelector((state) => state.user.tables[request]);
   const token = useSelector((state) => state.user.token);
+  const history = useHistory();
   const dispatch = useDispatch();
 
   async function query() {
     if (!token) return;
-    const response = await requestTable(tableName, token);
+    const response = await requestTable(request, token);
     if (response && response.data) dispatch(addTable(response));
   }
 
@@ -18,9 +21,13 @@ const Table = ({ tableName }) => {
 
   const filterKeys = (array) => array.filter((key) => !['id', 'created_at', 'updated_at'].includes(key));
 
+  const redirectTo = (rowId) => {
+    if (!id) history.push(`/${tableName}${rowId ? `/${rowId}/` : ''}`);
+  };
+
   const addData = () => {
     const response = table.data.map((row) => (
-      <tr key={row.id}>
+      <tr key={row.id} onClick={() => redirectTo(row.id)}>
         {filterKeys(Object.keys(row)).map((key) => (<td key={key}>{row[key]}</td>))}
       </tr>
     ));
@@ -47,8 +54,13 @@ const Table = ({ tableName }) => {
   );
 };
 
+Table.defaultProps = {
+  id: undefined,
+};
+
 Table.propTypes = {
   tableName: PropTypes.string.isRequired,
+  id: PropTypes.string,
 };
 
 export default Table;

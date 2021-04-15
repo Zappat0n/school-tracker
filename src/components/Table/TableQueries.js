@@ -8,9 +8,10 @@ async function getIndexTable(tableName, token) {
   };
 }
 
-async function requestTable(tableName, token) {
-  switch (tableName) {
-    case 'classrooms': case 'students': return getIndexTable(tableName, token);
+async function requestTable(request, token) {
+  const sections = request.split('/');
+  switch (sections[0]) {
+    case 'classrooms': case 'students': return getIndexTable(request, token);
     default: return null;
   }
 }
