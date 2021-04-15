@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavBar from './containers/NavBar/NavBar';
-import UserForm from './containers/UserForm/UserForm';
 import Index from './routes/Index/Index';
+import SignIn from './routes/SignIn/SignIn';
+import Students from './routes/Students/Students';
 
 const Routes = () => (
   <BrowserRouter>
@@ -11,12 +12,9 @@ const Routes = () => (
       <div className="errors" />
     </header>
     <Switch>
-      <Route path="/index/">
-        <Index />
-      </Route>
-      <Route path="/user/signin">
-        <UserForm action="Log In" />
-      </Route>
+      <Route path="/index/"><Index /></Route>
+      <Route path="/user/signin"><SignIn /></Route>
+      <Route path="/user/signin"><Students /></Route>
     </Switch>
   </BrowserRouter>
 );
