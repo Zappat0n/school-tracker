@@ -2,7 +2,7 @@ import Table from '../../components/Table/Table';
 
 const Index = () => (
   <>
-    <Table tableName="Classrooms" />
+    <Table tableName="classrooms" />
   </>
 );
 

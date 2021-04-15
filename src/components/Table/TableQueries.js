@@ -1,10 +1,10 @@
-import { getClassrooms } from '../../api/queries';
+import { getIndex } from '../../api/queries';
 import { addTable } from '../../slices/userSlice';
 
 async function getClassroomTable(tableName, token) {
-  const response = await getClassrooms(token);
+  const response = await getIndex(token, tableName);
   return {
-    tableName: 'Classrooms',
+    tableName: 'classrooms',
     function: addTable,
     data: response,
   };
@@ -12,7 +12,7 @@ async function getClassroomTable(tableName, token) {
 
 async function requestTable(tableName, token) {
   switch (tableName) {
-    case 'Classrooms': return getClassroomTable(tableName, token);
+    case 'classrooms': return getClassroomTable(tableName, token);
     default: return null;
   }
 }

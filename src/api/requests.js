@@ -47,8 +47,8 @@ export const logOutRequest = (token, username, password) => new Request(
   },
 );
 
-export const classroomsRequest = (token) => new Request(
-  `${process.env.REACT_APP_SERVER}/classrooms`,
+export const getIndexRequest = (token, controller) => new Request(
+  `${process.env.REACT_APP_SERVER}/${controller}`,
   {
     method: 'GET',
     headers: {

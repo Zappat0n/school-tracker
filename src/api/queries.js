@@ -1,5 +1,5 @@
 import {
-  signUpRequest, logInRequest, logOutRequest, classroomsRequest,
+  signUpRequest, logInRequest, logOutRequest, getIndexRequest,
 } from './requests';
 
 const displayError = (error) => {
@@ -35,8 +35,8 @@ async function signUp(email, password) {
   return response;
 }
 
-async function getClassrooms(token) {
-  const request = classroomsRequest(token);
+async function getIndex(token, controller) {
+  const request = getIndexRequest(token, controller);
   const response = await query(request);
   return response;
 }
@@ -46,5 +46,5 @@ async function logOut(token, username, password) {
 }
 
 export {
-  logIn, signUp, logOut, getClassrooms,
+  logIn, signUp, logOut, getIndex,
 };
