@@ -1,6 +1,8 @@
+import Table from '../../components/Table/Table';
+
 const Index = () => (
   <>
-    <p>Hi</p>
+    <Table tableName="Classrooms" />
   </>
 );
 
