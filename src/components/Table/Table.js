@@ -2,14 +2,17 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import requestTable from './TableQueries';
-import { addTable } from '../../slices/userSlice';
+import { addTable, changeTitle } from '../../slices/userSlice';
+import './Table.scss';
 
-const Table = ({ tableName, id }) => {
+const Table = ({ tableName, id, title }) => {
   const request = `${tableName}${id ? `/${id}` : ''}`;
   const table = useSelector((state) => state.user.tables[request]);
   const token = useSelector((state) => state.user.token);
   const history = useHistory();
   const dispatch = useDispatch();
+
+  dispatch(changeTitle(title));
 
   async function query() {
     if (!token) return;
@@ -27,7 +30,7 @@ const Table = ({ tableName, id }) => {
 
   const addData = () => {
     const response = table.data.map((row) => (
-      <tr key={row.id} onClick={() => redirectTo(row.id)}>
+      <tr key={row.id} className="row" onClick={() => redirectTo(row.id)}>
         {filterKeys(Object.keys(row)).map((key) => (<td key={key}>{row[key]}</td>))}
       </tr>
     ));
@@ -61,6 +64,7 @@ Table.defaultProps = {
 Table.propTypes = {
   tableName: PropTypes.string.isRequired,
   id: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 export default Table;

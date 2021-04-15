@@ -1,0 +1,30 @@
+@import "../../index.scss";
+
+
+table {
+  margin: 2rem auto;
+  border: solid 1px $primary-blue;
+  border-radius: 1rem;
+  font-family: 'Free Sans', sans;
+  background-color: $primary-blue;
+  padding: 0.5rem;
+}
+
+thead {
+  color: white;
+  font-family: 'Free Sans', sans;
+}
+
+th {
+  font: normal normal 700 1.5rem 'Free Sans', sans;
+  border-bottom: 1px solid white;
+}
+
+td {
+  font: normal normal 400 1rem/2rem 'Free Sans', sans;
+}
+
+.row:hover {
+  background: white;
+  cursor: pointer;
+}
