@@ -1,4 +1,6 @@
-import { signUpRequest, logInRequest, logOutRequest } from './requests';
+import {
+  signUpRequest, logInRequest, logOutRequest, classroomsRequest,
+} from './requests';
 
 const displayError = (error) => {
   const container = document.querySelector('.errors');
@@ -33,8 +35,16 @@ async function signUp(email, password) {
   return response;
 }
 
+async function getClassrooms(token) {
+  const request = classroomsRequest(token);
+  const response = await query(request);
+  return response;
+}
+
 async function logOut(token, username, password) {
   return query(logOutRequest(token, username, password));
 }
 
-export { logIn, signUp, logOut };
+export {
+  logIn, signUp, logOut, getClassrooms,
+};

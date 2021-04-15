@@ -7,8 +7,8 @@ import Index from './routes/Index/Index';
 const Routes = () => (
   <BrowserRouter>
     <header>
-      <div className="errors" />
       <NavBar />
+      <div className="errors" />
     </header>
     <Switch>
       <Route path="/index/">

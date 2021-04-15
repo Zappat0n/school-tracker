@@ -47,12 +47,12 @@ export const logOutRequest = (token, username, password) => new Request(
   },
 );
 
-export const getClassrooms = (token) => new Request(
-  `${process.env.REACT_APP_SERVER}/classrooms/index`,
+export const classroomsRequest = (token) => new Request(
+  `${process.env.REACT_APP_SERVER}/classrooms`,
   {
     method: 'GET',
     headers: {
-      Authorization: `Bearer ${Buffer.from(`${token}`).toString('base64')}`,
+      Authorization: `Bearer ${token}`,
     },
   },
 );
