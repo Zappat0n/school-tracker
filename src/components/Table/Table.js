@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import requestTable from './TableQueries';
+import { addTable } from '../../slices/userSlice';
 
 const Table = ({ tableName }) => {
   const table = useSelector((state) => state.user.tables[tableName]);
@@ -10,7 +11,7 @@ const Table = ({ tableName }) => {
   async function query() {
     if (!token) return;
     const response = await requestTable(tableName, token);
-    if (response && response.data && response.function) dispatch(response.function(response));
+    if (response && response.data) dispatch(addTable(response));
   }
 
   if (!table) query();

@@ -1,11 +1,9 @@
 import { getIndex } from '../../api/queries';
-import { addTable } from '../../slices/userSlice';
 
 async function getIndexTable(tableName, token) {
   const response = await getIndex(token, tableName);
   return {
     tableName,
-    function: addTable,
     data: response,
   };
 }
