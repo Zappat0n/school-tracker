@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { logIn, signUp } from '../../api/queries';
-import { addRedirect, save } from '../../slices/userSlice';
+import { save } from '../../slices/userSlice';
 
 const UserForm = (props) => {
   const { action } = props;
   const redirect = useSelector((state) => state.user.redirect);
+  const history = useHistory();
   const dispatch = useDispatch();
 
   async function getLogIn(email, password) {
@@ -34,18 +35,14 @@ const UserForm = (props) => {
 
     if (action === 'Log In') {
       const response = await getLogIn(email.value, password.value);
-      if (response) {
-        dispatch(addRedirect('/students/'));
-      }
+      if (response) history.push('/classrooms/');
     } else if (getSignUp(email.value, password.value)) {
       return <Redirect to="/index/" />;
     }
     return false;
   }
 
-  if (redirect) {
-    return <Redirect to={redirect} />;
-  }
+  if (redirect) return <Redirect to={redirect} />;
   return (
     <form className="user-form" onSubmit={(event) => submit(event)}>
       <section className="email">

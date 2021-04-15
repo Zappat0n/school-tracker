@@ -2,7 +2,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  redirect: '',
   tables: {},
 };
 
@@ -16,9 +15,6 @@ export const userSlice = createSlice({
       state.password = password;
       state.token = token;
     },
-    addRedirect: (state, action) => {
-      state.redirect = action.payload;
-    },
     addTable: (state, action) => {
       const { tableName, headers, data } = action.payload;
       state.tables[tableName] = { headers, data };
@@ -26,6 +22,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { addRedirect, addTable, save } = userSlice.actions;
+export const { addTable, save } = userSlice.actions;
 
 export default userSlice.reducer;
