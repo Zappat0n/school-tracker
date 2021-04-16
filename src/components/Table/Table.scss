@@ -1,30 +1,63 @@
 @import "../../index.scss";
 
+.container-table {
+  width: 80%;
+  margin: 0 auto;
+  background: #fff;
+}
 
-table {
+.table {
   margin: 2rem auto;
-  border: solid 1px $primary-blue;
   border-radius: 1rem;
   font-family: 'Free Sans', sans;
-  background-color: $primary-blue;
-  padding: 0.5rem;
+  background-color: #fff;
+  width: 100%;
 }
 
-thead {
-  color: white;
-  font-family: 'Free Sans', sans;
+.table-head {
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
-th {
-  font: normal normal 700 1.5rem 'Free Sans', sans;
-  border-bottom: 1px solid white;
+table {
+  width: 100%;
+  border-spacing: 0;
 }
 
-td {
-  font: normal normal 400 1rem/2rem 'Free Sans', sans;
+thead, tbody {
+  width: 100%;
+}
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+  -moz-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+
+  th {
+    font: normal normal 700 1.5rem/3rem 'Free Sans', sans;
+    color: #fff;
+    background-color: $primary-blue;
+  }
+
+  td {
+    font: normal normal 400 1.2rem/2rem 'Free Sans', sans;
+    text-align: center;
+  }
+}
+
+.table .table-body tr:nth-child(even) {
+  background-color: #f8f6ff;
 }
 
 .row:hover {
-  background: white;
+  background: lightgray !important;
   cursor: pointer;
+}
+
+.column1 {
+  padding-left: 2rem;
 }
