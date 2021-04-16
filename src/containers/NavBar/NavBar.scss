@@ -1,11 +1,15 @@
 @import "../../index.scss";
 
+.nav-col {
+  width: 33%;
+}
+
 .nav-bar {
   display: flex;
-  justify-content: space-between;
   background: $primary-blue;
   font: normal normal bold 1.5rem/3rem 'Free Sans', sans-serif;
   color: white;
+  padding: 0 1rem;
 
   button {
     background: $primary-blue;
@@ -13,10 +17,25 @@
     outline:none;
     font-size: 1.5rem;
     color: white;
-    padding: 0 1rem;
   }
 
-  button:hover {
+  button:hover, #menu-toggle:hover {
     cursor: pointer;
+  }
+
+  a {
+    color: white;
+  }
+}
+
+.menu-content {
+  width: 100%;
+  background: white;
+  font: normal normal bold 1.5rem/3rem 'Free Sans', sans-serif;
+  border-bottom: 1px solid $primary-blue;
+
+  a{
+    padding: 0 2rem;
+    color: $primary-blue;
   }
 }
