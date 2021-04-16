@@ -11,7 +11,10 @@ async function getIndexTable(tableName, token) {
 async function requestTable(request, token) {
   const sections = request.split('/');
   switch (sections[0]) {
-    case 'classrooms': case 'students': case 'presentation_areas': return getIndexTable(request, token);
+    case 'classrooms':
+    case 'students':
+    case 'presentation_areas':
+    case 'presentation_subareas': return getIndexTable(request, token);
     default: return null;
   }
 }

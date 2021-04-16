@@ -33,6 +33,7 @@ const NavBar = () => {
       <div className="menu-content d-none">
         <Link to="/classrooms/" className="link">Classrooms</Link>
         <Link to="/presentation_areas/" className="link">Curriculum</Link>
+        <Link to="/presentation_subareas/" className="link">Subareas</Link>
       </div>
     </>
   );
