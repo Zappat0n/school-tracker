@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import requestTable from './TableQueries';
 import { addTable, changeTitle } from '../../slices/userSlice';
+import filterKeys from './TableUtils';
+import Row from './Row/Row';
 import './Table.scss';
 
 const Table = ({ tableName, id, title }) => {
@@ -22,22 +24,11 @@ const Table = ({ tableName, id, title }) => {
 
   if (!table) query();
 
-  const filterKeys = (array) => array.filter((key) => (!['id', 'created_at', 'updated_at'].includes(key) && !key.endsWith('_id')));
-
   const redirectTo = (rowId) => {
     if (!id) history.push(`/${tableName}${rowId ? `/${rowId}/` : ''}`);
   };
 
   const formatColumn = (text) => (text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()).replace('_', ' ');
-
-  const addData = () => {
-    const response = table.data.map((row) => (
-      <tr key={row.id} className="row" onClick={() => redirectTo(row.id)}>
-        {filterKeys(Object.keys(row)).map((key, index) => (<td className={`column${index + 1}`} key={key}>{row[key]}</td>))}
-      </tr>
-    ));
-    return response;
-  };
 
   return (
     <div className="container-table">
@@ -52,7 +43,9 @@ const Table = ({ tableName, id, title }) => {
               </tr>
             </thead>
             <tbody className="table-body js-pscroll">
-              {addData()}
+              {table.data.map(
+                (row) => <Row key={row.id} data={row} handleClik={() => redirectTo(row.id)} />,
+              )}
             </tbody>
           </table>
         </div>

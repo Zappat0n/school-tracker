@@ -1,4 +1,4 @@
-import Table from '../../components/Table/Table';
+import Table from '../../containers/Table/Table';
 
 const Students = () => (
   <>

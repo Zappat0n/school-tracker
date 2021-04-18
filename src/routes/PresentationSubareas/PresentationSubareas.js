@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import Table from '../../components/Table/Table';
+import Table from '../../containers/Table/Table';
 
 const PresentationSubareas = () => {
   const { id } = useParams();
