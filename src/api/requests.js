@@ -47,6 +47,23 @@ export const logOutRequest = (token, username, password) => new Request(
   },
 );
 
+export const postEventRequest = (token, date, student, presentation, score) => new Request(
+  `${process.env.REACT_APP_SERVER}/events`,
+  {
+    method: 'POST',
+    headers: {
+      'content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: `{
+      "date" : "${date}",
+      "student_id" : ${student},
+      "presentation_id" : ${presentation},
+      "score" : ${score}
+    }`,
+  },
+);
+
 export const getIndexRequest = (token, controller) => new Request(
   `${process.env.REACT_APP_SERVER}/${controller}`,
   {

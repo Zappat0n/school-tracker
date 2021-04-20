@@ -1,5 +1,5 @@
 import {
-  signUpRequest, logInRequest, logOutRequest, getIndexRequest,
+  signUpRequest, logInRequest, logOutRequest, getIndexRequest, postEventRequest,
 } from './requests';
 
 const displayError = (error) => {
@@ -41,10 +41,17 @@ async function getIndex(token, controller) {
   return response;
 }
 
+async function postEvent(token, date, student, presentation, score) {
+  const request = postEventRequest(token, date, student, presentation, score);
+  console.log(request);
+  const response = await query(request);
+  return response;
+}
+
 async function logOut(token, username, password) {
   return query(logOutRequest(token, username, password));
 }
 
 export {
-  logIn, signUp, logOut, getIndex,
+  logIn, signUp, logOut, getIndex, postEvent,
 };
