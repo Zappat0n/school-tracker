@@ -40,6 +40,7 @@ const Table = ({ tableName, id, title }) => {
                 {filterKeys(Object.keys(table.data[0])).map((value, index) => (
                   <th className={`column${index + 1}`} key={value}>{formatColumn(value)}</th>
                 ))}
+                <th key="commands">Commands</th>
               </tr>
             </thead>
             <tbody className="table-body js-pscroll">
