@@ -64,6 +64,23 @@ export const postEventRequest = (token, date, student, presentation, score) => n
   },
 );
 
+export const updateEventRequest = (token, id, date, student, presentation, score) => new Request(
+  `${process.env.REACT_APP_SERVER}/events/${id}`,
+  {
+    method: 'PUT',
+    headers: {
+      'content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+    body: `{
+      ${date ? `"date" : ${date},` : ''}
+      ${student ? `"student_id" : ${student},` : ''}
+      ${presentation ? `"presentation_id" : ${presentation},` : ''}
+      ${score ? `"score" : ${score},` : ''}
+    }`,
+  },
+);
+
 export const getIndexRequest = (token, controller) => new Request(
   `${process.env.REACT_APP_SERVER}/${controller}`,
   {

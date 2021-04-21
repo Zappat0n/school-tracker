@@ -1,5 +1,5 @@
 import {
-  signUpRequest, logInRequest, logOutRequest, getIndexRequest, postEventRequest,
+  signUpRequest, logInRequest, logOutRequest, getIndexRequest, postEventRequest, updateEventRequest,
 } from './requests';
 
 const displayError = (error) => {
@@ -48,10 +48,17 @@ async function postEvent(token, date, student, presentation, score) {
   return response;
 }
 
+async function updateEvent(token, id, date, student, presentation, score) {
+  const request = updateEventRequest(token, id, date, student, presentation, score);
+  console.log(request);
+  const response = await query(request);
+  return response;
+}
+
 async function logOut(token, username, password) {
   return query(logOutRequest(token, username, password));
 }
 
 export {
-  logIn, signUp, logOut, getIndex, postEvent,
+  logIn, signUp, logOut, getIndex, postEvent, updateEvent,
 };
