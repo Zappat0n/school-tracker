@@ -43,14 +43,12 @@ async function getIndex(token, controller) {
 
 async function postEvent(token, date, student, presentation, score) {
   const request = postEventRequest(token, date, student, presentation, score);
-  console.log(request);
   const response = await query(request);
   return response;
 }
 
 async function updateEvent(token, id, date, student, presentation, score) {
   const request = updateEventRequest(token, id, date, student, presentation, score);
-  console.log(request);
   const response = await query(request);
   return response;
 }

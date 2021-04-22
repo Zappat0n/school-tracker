@@ -1,37 +1,25 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { postEvent } from '../../api/queries';
 
-const ComboBox = ({ _id, presentation, student }) => {
-  const token = useSelector((state) => state.user.token);
-  // const dispatch = useDispatch();
-  let id = _id;
+const ComboBox = (props) => {
+  const { presentation, student, handleChange } = props;
+  let id;
+  const scores = useSelector((state) => state.classroomTable.scores);
 
-  const getScore = (value) => {
-    switch (value) {
-      case ' ': return 0;
-      case '/': return 1;
-      case 'ꓥ': return 2;
-      case '𐊅': return 3;
+  const getSign = () => {
+    const score = scores[`${presentation}-${student}`] || 0;
+    switch (score) {
+      case 0: return ' ';
+      case 1: return '/';
+      case 2: return 'ꓥ';
+      case 3: return '𐊅';
       default: return null;
     }
   };
 
-  async function query(score) {
-    if (!token) return;
-    const response = await postEvent(token, new Date().toISOString().split('T')[0], student, presentation, getScore(score));
-    console.log(response);
-    if (response && response.data) id = response;
-  }
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    query(e.target.value);
-  };
-
   return (
     <td>
-      <select className="combo" id={id} presentation={presentation} student={student} onChange={(e) => handleChange(e)}>
+      <select className="combo" id={id} presentation={presentation} student={student} onChange={(event) => handleChange(event, presentation, student)} value={getSign()}>
         <option value=" "> </option>
         <option value="/">/</option>
         <option value="ꓥ">ꓥ</option>
@@ -41,14 +29,10 @@ const ComboBox = ({ _id, presentation, student }) => {
   );
 };
 
-ComboBox.defaultProps = {
-  _id: undefined,
-};
-
 ComboBox.propTypes = {
-  presentation: PropTypes.string.isRequired,
-  student: PropTypes.instanceOf(Array).isRequired,
-  _id: PropTypes.number,
+  presentation: PropTypes.number.isRequired,
+  student: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default ComboBox;

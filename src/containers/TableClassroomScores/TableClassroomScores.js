@@ -1,50 +1,84 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTable, changeTitle } from '../../slices/userSlice';
-import { getIndex } from '../../api/queries';
+import { changeTitle } from '../../slices/userSlice';
+import { getIndex, postEvent } from '../../api/queries';
 import ClassroomRow from './ClassroomRow';
+import {
+  saveScore, savePresentations, saveScores, saveStudents,
+} from '../../slices/classroomTableSlice';
 import './TableClassroomScores.scss';
 
 const TableClassroomScores = ({ id, title }) => {
   const request = `classrooms/${id}/scores/`;
-  const table = useSelector((state) => state.user.tables[request]);
+  const table = useSelector((state) => state.classroomTable);
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
 
   dispatch(changeTitle(title));
 
-  async function query() {
+  const getScore = (value) => {
+    switch (value) {
+      case ' ': return 0;
+      case '/': return 1;
+      case 'ꓥ': return 2;
+      case '𐊅': return 3;
+      default: return null;
+    }
+  };
+
+  async function requestData() {
     if (!token) return;
     const response = {
       tableName: request,
       data: await getIndex(token, request),
     };
-    if (response && response.data) dispatch(addTable(response));
+    if (response && response.data) {
+      dispatch(saveStudents(response.data.students));
+      dispatch(savePresentations(response.data.presentations));
+      dispatch(saveScores(response.data.events));
+    }
   }
 
-  if (!table) query();
-  console.log(table);
+  async function updateScore(event, presentation, student) {
+    event.preventDefault();
+    const score = getScore(event.target.value);
+    if (!token) return;
+    const response = await postEvent(token, new Date().toISOString().split('T')[0], student, presentation, score);
+    if (response) {
+      // id = response;
+      dispatch(saveScore({
+        presentation,
+        student,
+        score,
+      }));
+    }
+  }
+
+  useEffect(() => {
+    requestData();
+  }, []);
+
   return (
     <div className="container-table">
-      {(table && table.data) ? (
+      {(table.students.length > 0 && table.presentations.length > 0) ? (
         <div className="table">
           <table>
             <thead className="table-classroom-head">
               <tr>
-                {(table.data.students ? ['Presentations'].concat(table.data.students) : []).map((value, index) => (
-                  <th className={`column${index + 1}`} key={value.name}>{value.name}</th>
-                ))}
+                {(table.students ? [{ id: 0 }].concat(table.students) : []).map(
+                  (student, index) => (<th className={`column${index + 1}`} key={student.id}>{student.name}</th>),
+                )}
               </tr>
             </thead>
             <tbody className="table-body">
               {
-              (table.data.presentations ? table.data.presentations.slice(1, 10) : []).map(
-                (value) => (
+              (table.presentations ? table.presentations.slice(1, 10) : []).map(
+                (presentation) => (
                   <ClassroomRow
-                    key={value.name}
-                    id={value.id}
-                    presentation={value.name}
-                    students={table.data.students.map((value) => value.id)}
+                    key={presentation.id}
+                    presentationId={presentation.id}
+                    handleChange={updateScore}
                   />
                 ),
               )
