@@ -12,8 +12,10 @@ export const classroomTableSlice = createSlice({
   initialState,
   reducers: {
     saveScore: (state, action) => {
-      const { presentation, student, score } = action.payload;
-      state.scores[`${presentation}-${student}`] = score;
+      const {
+        presentation, student, score, id,
+      } = action.payload;
+      state.scores[`${presentation}-${student}`] = { id, score };
     },
     saveStudents: (state, action) => {
       state.students = action.payload;
@@ -24,7 +26,7 @@ export const classroomTableSlice = createSlice({
     saveScores: (state, action) => {
       action.payload.forEach(
         (event) => {
-          state.scores[`${event.presentation_id}-${event.student_id}`] = event.score;
+          state.scores[`${event.presentation_id}-${event.student_id}`] = { id: event.id, score: event.score };
         },
       );
     },

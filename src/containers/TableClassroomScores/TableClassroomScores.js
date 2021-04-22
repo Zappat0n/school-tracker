@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTitle } from '../../slices/userSlice';
-import { getIndex, postEvent } from '../../api/queries';
+import { getIndex, postEvent, updateEvent } from '../../api/queries';
 import ClassroomRow from './ClassroomRow';
 import {
   saveScore, savePresentations, saveScores, saveStudents,
@@ -40,11 +40,13 @@ const TableClassroomScores = ({ id, title }) => {
     }
   }
 
-  async function updateScore(event, presentation, student) {
+  async function updateScore(event, presentation, student, id) {
     event.preventDefault();
     const score = getScore(event.target.value);
     if (!token) return;
-    const response = await postEvent(token, new Date().toISOString().split('T')[0], student, presentation, score);
+    const response = (!id) ? await postEvent(token, new Date().toISOString().split('T')[0], student, presentation, score)
+      : await updateEvent(token, id, new Date().toISOString().split('T')[0], student, presentation, score);
+
     if (response) {
       // id = response;
       dispatch(saveScore({

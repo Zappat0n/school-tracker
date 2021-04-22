@@ -73,10 +73,10 @@ export const updateEventRequest = (token, id, date, student, presentation, score
       Authorization: `Bearer ${token}`,
     },
     body: `{
-      ${date ? `"date" : ${date},` : ''}
-      ${student ? `"student_id" : ${student},` : ''}
-      ${presentation ? `"presentation_id" : ${presentation},` : ''}
-      ${score ? `"score" : ${score},` : ''}
+      "date" : "${date}",
+      "student_id" : ${student},
+      "presentation_id" : ${presentation},
+      "score" : ${score}
     }`,
   },
 );

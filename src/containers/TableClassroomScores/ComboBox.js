@@ -3,12 +3,10 @@ import { useSelector } from 'react-redux';
 
 const ComboBox = (props) => {
   const { presentation, student, handleChange } = props;
-  let id;
-  const scores = useSelector((state) => state.classroomTable.scores);
+  const score = useSelector((state) => state.classroomTable.scores[`${presentation}-${student}`] || 0);
 
   const getSign = () => {
-    const score = scores[`${presentation}-${student}`] || 0;
-    switch (score) {
+    switch (score.score) {
       case 0: return ' ';
       case 1: return '/';
       case 2: return 'ꓥ';
@@ -19,7 +17,7 @@ const ComboBox = (props) => {
 
   return (
     <td>
-      <select className="combo" id={id} presentation={presentation} student={student} onChange={(event) => handleChange(event, presentation, student)} value={getSign()}>
+      <select className="combo" id={score.id} presentation={presentation} student={student} onChange={(event) => handleChange(event, presentation, student, score.id)} value={getSign()}>
         <option value=" "> </option>
         <option value="/">/</option>
         <option value="ꓥ">ꓥ</option>
