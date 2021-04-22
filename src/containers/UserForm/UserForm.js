@@ -53,7 +53,7 @@ const UserForm = (props) => {
       <section className="password">
         <label htmlFor="password">
           Password
-          <input id="password" type="password" />
+          <input id="password" type="password" autoComplete="on" />
         </label>
       </section>
       <button className="submit" type="submit">
