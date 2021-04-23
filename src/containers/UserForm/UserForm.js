@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { logIn, signUp } from '../../api/queries';
 import { changeTitle, save } from '../../slices/userSlice';
 import './UserForm.scss';
@@ -29,9 +29,8 @@ const UserForm = (props) => {
   }, []);
 
   async function getSignUp(email, password) {
-    if (signUp(email, password)) {
-      getLogIn(email, password);
-    }
+    const response = await signUp(email, password);
+    return (response && getLogIn(email, password));
   }
 
   async function submit(event) {
@@ -41,8 +40,9 @@ const UserForm = (props) => {
     if (action === 'Log In') {
       const response = await getLogIn(email.value, password.value);
       if (response) history.push('/classrooms/');
-    } else if (getSignUp(email.value, password.value)) {
-      history.push('/classrooms/');
+    } else {
+      const response = await (getSignUp(email.value, password.value));
+      if (response) history.push('/classrooms/');
     }
     return false;
   }
@@ -61,9 +61,14 @@ const UserForm = (props) => {
           <input id="password" type="password" autoComplete="on" />
         </label>
       </section>
-      <button className="submit" type="submit">
-        {action}
-      </button>
+      <section className="buttons">
+        <button className="submit" type="submit">
+          {action}
+        </button>
+        <div className="link-container">
+          {action === 'Log In' ? <Link to="/user/signup" className="link">Sign up</Link> : <Link to="/user/signin" className="link">Log In</Link> }
+        </div>
+      </section>
     </form>
   );
 };

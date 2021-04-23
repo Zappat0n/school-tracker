@@ -21,7 +21,7 @@ const TableClassroomScores = ({ id, title }) => {
       case '/': return 1;
       case 'ꓥ': return 2;
       case '𐊅': return 3;
-      default: return ' ';
+      default: return '';
     }
   };
 

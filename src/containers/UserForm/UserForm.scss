@@ -26,7 +26,7 @@
     background: $primary-blue;
     margin-top: 1rem !important;
     border-radius: 0.5rem;
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
     border: none;
     outline:none;
@@ -36,5 +36,23 @@
 
   .submit:hover {
     cursor: pointer;
+  }
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 0 auto;
+  }
+
+  .link-container {
+    width: 40%;
+  }
+
+  .link {
+    padding: 0 1rem;
+    text-decoration: underline;
+    color: $primary-blue;
   }
 }

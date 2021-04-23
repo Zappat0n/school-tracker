@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NavBar from './containers/NavBar/NavBar';
 import SignIn from './routes/SignIn/SignIn';
+import SignUp from './routes/SignUp/SignUp';
 import Classrooms from './routes/Classrooms/Classrooms';
 import Students from './routes/Students/Students';
 import PresentationAreas from './routes/PresentationAreas/PresentationAreas';
@@ -17,6 +18,7 @@ const Routes = () => (
     </header>
     <Switch>
       <Route path="/user/signin"><SignIn /></Route>
+      <Route path="/user/signup"><SignUp /></Route>
       <Route exact path="/classrooms/"><Classrooms /></Route>
       <Route exact path="/classrooms/:id"><Classrooms /></Route>
       <Route path="/students"><Students /></Route>
