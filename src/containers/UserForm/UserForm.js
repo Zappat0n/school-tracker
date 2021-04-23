@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { logIn, signUp } from '../../api/queries';
 import { changeTitle, save } from '../../slices/userSlice';
+import './UserForm.scss';
 
 const UserForm = (props) => {
   const { action } = props;
   const history = useHistory();
   const dispatch = useDispatch();
-  dispatch(changeTitle(action));
 
   async function getLogIn(email, password) {
     const response = await logIn(email, password);
@@ -22,6 +23,10 @@ const UserForm = (props) => {
     }
     return false;
   }
+
+  useEffect(() => {
+    dispatch(changeTitle(action));
+  }, []);
 
   async function getSignUp(email, password) {
     if (signUp(email, password)) {
@@ -43,7 +48,7 @@ const UserForm = (props) => {
   }
 
   return (
-    <form className="user-form" onSubmit={(event) => submit(event)}>
+    <form className="user-form table" onSubmit={(event) => submit(event)}>
       <section className="email">
         <label htmlFor="email">
           Email

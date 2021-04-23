@@ -15,15 +15,13 @@ const TableClassroomScores = ({ id, title }) => {
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
 
-  dispatch(changeTitle(title));
-
   const getScore = (value) => {
     switch (value) {
       case ' ': return 0;
       case '/': return 1;
       case 'ꓥ': return 2;
       case '𐊅': return 3;
-      default: return null;
+      default: return ' ';
     }
   };
 
@@ -58,11 +56,12 @@ const TableClassroomScores = ({ id, title }) => {
   }
 
   useEffect(() => {
+    dispatch(changeTitle(title));
     requestData();
   }, []);
 
   return (
-    <div className="container-table">
+    <div className="container-table-scores">
       {(table.students.length > 0 && table.presentations.length > 0) ? (
         <div className="table">
           <table>

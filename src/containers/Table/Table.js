@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import requestTable from './TableQueries';
@@ -14,8 +15,6 @@ const Table = ({ tableName, id, title }) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  dispatch(changeTitle(title));
-
   async function query() {
     if (!token) return;
     const response = await requestTable(request, token);
@@ -29,6 +28,10 @@ const Table = ({ tableName, id, title }) => {
   };
 
   const formatColumn = (text) => (text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()).replace('_', ' ');
+
+  useEffect(() => {
+    dispatch(changeTitle(title));
+  }, []);
 
   return (
     <div className="container-table">
