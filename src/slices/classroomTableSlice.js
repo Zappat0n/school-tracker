@@ -30,14 +30,11 @@ export const classroomTableSlice = createSlice({
         },
       );
     },
-    clean: (state) => {
-      state.scores = [];
-    },
   },
 });
 
 export const {
-  clean, saveScore, saveScores, saveStudents, savePresentations,
+  saveScore, saveScores, saveStudents, savePresentations,
 } = classroomTableSlice.actions;
 
 export default classroomTableSlice.reducer;
