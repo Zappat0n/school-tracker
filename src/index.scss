@@ -7,6 +7,13 @@ $primary-green: rgb(173, 220, 145);
   src: url("./assets/FreeSans.ttf") format('truetype');
 }
 
+@mixin responsive {
+  width: 80% !important;
+  @media(min-width: 800px) {
+    width: 40% !important;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
