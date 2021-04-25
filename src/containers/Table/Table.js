@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import requestTable from './TableQueries';
 import { addTable, changeTitle } from '../../slices/userSlice';
 import filterKeys from './TableUtils';
-import Row from './Row/Row';
+import Row from './Row';
 import './Table.scss';
 
 const Table = ({ tableName, id, title }) => {

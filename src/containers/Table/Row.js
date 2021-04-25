@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import filterKeys from '../TableUtils';
+import filterKeys from './TableUtils';
 
 const Row = (props) => {
   const { data, handleClik } = props;

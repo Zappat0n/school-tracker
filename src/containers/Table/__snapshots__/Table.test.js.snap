@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stock Match SnapShot 1`] = `
+<div
+  className="container-table"
+>
+  <div
+    className="table"
+  >
+    <table>
+      <thead
+        className="table-head"
+      >
+        <tr>
+          <th
+            className="column1"
+          >
+            Name
+          </th>
+          <th>
+            Commands
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="table-body js-pscroll"
+      >
+        <tr
+          className="row"
+          onClick={[Function]}
+        >
+          <td
+            className="column1"
+          >
+            John
+          </td>
+          <td
+            className="buttons"
+          >
+            <button
+              type="button"
+            >
+              <i
+                className="fas fa-edit"
+              />
+            </button>
+          </td>
+        </tr>
+        <tr
+          className="row"
+          onClick={[Function]}
+        >
+          <td
+            className="column1"
+          >
+            Peter
+          </td>
+          <td
+            className="buttons"
+          >
+            <button
+              type="button"
+            >
+              <i
+                className="fas fa-edit"
+              />
+            </button>
+          </td>
+        </tr>
+        <tr
+          className="row"
+          onClick={[Function]}
+        >
+          <td
+            className="column1"
+          >
+            Mark
+          </td>
+          <td
+            className="buttons"
+          >
+            <button
+              type="button"
+            >
+              <i
+                className="fas fa-edit"
+              />
+            </button>
+          </td>
+        </tr>
+        <tr
+          className="row"
+          onClick={[Function]}
+        >
+          <td
+            className="column1"
+          >
+            Louis
+          </td>
+          <td
+            className="buttons"
+          >
+            <button
+              type="button"
+            >
+              <i
+                className="fas fa-edit"
+              />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
