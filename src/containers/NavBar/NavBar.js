@@ -19,7 +19,7 @@ const NavBar = () => {
     <>
       <div className="nav-bar">
         <div className="left nav-col ta-left">
-          <i id="menu-toggle" role="none" className="fas fa-bars" onKeyDown={(e) => toggleMenu(e)} onClick={(e) => toggleMenu(e)} />
+          <i id="menu-toggle" role="menubar" tabIndex={0} className="fas fa-bars" onKeyDown={(e) => toggleMenu(e)} onClick={(e) => toggleMenu(e)} />
         </div>
         <div className="center nav-col ta-center">
           {title || 'Welcome'}
