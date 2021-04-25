@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import ComboBox from './ComboBox';
 
 const ClassroomRow = ({ presentationId, handleChange }) => {
-  const presentation = useSelector((state) => state.classroomTable.presentations[presentationId]);
+  const presentation = useSelector(
+    (state) => state.classroomTable.presentations.filter((value) => value.id === presentationId)[0],
+  );
   const students = useSelector((state) => state.classroomTable.students);
 
   return (

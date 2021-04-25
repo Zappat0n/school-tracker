@@ -11,7 +11,7 @@ const ComboBox = (props) => {
       case 1: return '/';
       case 2: return 'ꓥ';
       case 3: return '𐊅';
-      default: return null;
+      default: return '';
     }
   };
 

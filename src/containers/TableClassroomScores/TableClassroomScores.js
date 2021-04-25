@@ -74,7 +74,7 @@ const TableClassroomScores = ({ id, title }) => {
             </thead>
             <tbody className="table-body">
               {
-              (table.presentations ? table.presentations.slice(1, 10) : []).map(
+              (table.presentations ? table.presentations.slice(0, 10) : []).map(
                 (presentation) => (
                   <ClassroomRow
                     key={presentation.id}
