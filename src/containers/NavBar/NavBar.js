@@ -34,7 +34,6 @@ const NavBar = () => {
         <Link to="/classrooms/" className="link">Classrooms</Link>
         <Link to="/presentation_areas/" className="link">Curriculum</Link>
         <Link to="/presentation_subareas/" className="link">Subareas</Link>
-        <Link to="/classrooms/1/scores/" className="link">Scores</Link>
       </div>
     </>
   );

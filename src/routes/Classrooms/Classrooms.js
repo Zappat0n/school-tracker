@@ -6,7 +6,23 @@ const Classrooms = () => {
 
   return (
     <>
-      <Table tableName="classrooms" id={id} title={id ? 'Students' : 'Classrooms'} />
+      <Table
+        tableName="classrooms"
+        id={id}
+        title={id ? 'Students' : 'Classrooms'}
+        commands={
+        [
+          {
+            className: 'fas fa-list',
+            route: '/classrooms/:id',
+          },
+          {
+            className: 'fas fa-th',
+            route: '/classrooms/:id/scores',
+          },
+        ]
+        }
+      />
     </>
   );
 };

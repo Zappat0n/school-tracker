@@ -1,23 +1,30 @@
 import PropTypes from 'prop-types';
-import filterKeys from './TableUtils';
+import { Link } from 'react-router-dom';
+import { filterKeys } from './TableUtils';
 
 const Row = (props) => {
-  const { data, handleClik } = props;
+  const { data, commands } = props;
+
+  const drawButtons = () => {
+    if (commands.length === 0) return '';
+    return (
+      <td className="buttons">
+        {commands.map((command) => (
+          <Link key={command.name} to={command.route.replace(':id', data.id)} className="row-link">{command.name}</Link>
+        ))}
+      </td>
+    );
+  };
 
   return (
     <>
-      <tr key={data.id} className="row" onClick={() => handleClik()}>
+      <tr key={data.id} className="row">
         {filterKeys(Object.keys(data)).map((key, index) => (
           <td className={`column${index + 1}`} key={key}>
-            { /* <input type="text" value={data[key]} /> */}
             {data[key]}
           </td>
         ))}
-        <td className="buttons">
-          <button type="button">
-            <i className="fas fa-edit" />
-          </button>
-        </td>
+        {drawButtons()}
       </tr>
     </>
   );
@@ -25,7 +32,7 @@ const Row = (props) => {
 
 Row.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
-  handleClik: PropTypes.func.isRequired,
+  commands: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default Row;
