@@ -14,12 +14,13 @@
   button {
     background: $primary-blue;
     border: none;
-    outline:none;
+    outline: none;
     font-size: 1.5rem;
     color: white;
   }
 
-  button:hover, #menu-toggle:hover {
+  button:hover,
+  #menu-toggle:hover {
     cursor: pointer;
   }
 
@@ -34,7 +35,7 @@
   font: normal normal bold 1.5rem/3rem 'Free Sans', sans-serif;
   border-bottom: 1px solid $primary-blue;
 
-  a{
+  a {
     padding: 0 2rem;
     color: $primary-blue;
   }
