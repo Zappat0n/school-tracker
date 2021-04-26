@@ -5,7 +5,10 @@ const StudentScores = () => {
   const { id } = useParams();
   return (
     <>
-      <TableStudentScores id={id} title="Classroom Scores" />
+      <TableStudentScores
+        id={id}
+        title="Student scores"
+      />
     </>
   );
 };

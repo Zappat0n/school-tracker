@@ -2,7 +2,9 @@ const filterKeys = (array) => array.filter((key) => (!['id', 'created_at', 'upda
 
 const getCommands = (table) => {
   if (table.startsWith('classrooms')) {
-    if (table.includes('/')) return [];
+    if (table.includes('/')) {
+      return [{ name: 'scores', route: '/students/:id/scores' }];
+    }
     return [
       { name: 'list', route: '/classrooms/:id' },
       { name: 'scores', route: '/classrooms/:id/scores' },

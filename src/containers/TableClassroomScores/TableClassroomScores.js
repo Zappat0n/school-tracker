@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTitle } from '../../slices/userSlice';
 import { getIndex, postEvent, updateEvent } from '../../api/queries';
@@ -68,7 +69,13 @@ const TableClassroomScores = ({ id, title }) => {
             <thead className="table-classroom-head">
               <tr>
                 {(table.students ? [{ id: 0 }].concat(table.students) : []).map(
-                  (student, index) => (<th className={`column${index + 1}`} key={student.id}>{student.name}</th>),
+                  (student, index) => (
+                    <th className={`column${index + 1}`} key={student.id}>
+                      <Link to={`/students/${student.id}/scores/`} className="head-link">
+                        {student.name}
+                      </Link>
+                    </th>
+                  ),
                 )}
               </tr>
             </thead>

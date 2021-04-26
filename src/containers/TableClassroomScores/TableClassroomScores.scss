@@ -6,12 +6,18 @@
 }
 
 .table {
-  overflow:scroll;
+  @media (max-width: 768px) {
+    overflow:scroll;
+  }
 }
 
 .table-classroom-head {
   th {
     @include small-font;
+  }
+  .head-link {
+    color: white;
+    font-weight: 700;
   }
 }
 

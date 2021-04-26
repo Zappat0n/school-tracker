@@ -21,7 +21,7 @@ const Routes = () => (
       <Route path="/user/signup"><SignUp /></Route>
       <Route exact path="/classrooms/"><Classrooms /></Route>
       <Route exact path="/classrooms/:id"><Classrooms /></Route>
-      <Route path="/students"><Students /></Route>
+      <Route exact path="/students"><Students /></Route>
       <Route exact path="/presentation_areas"><PresentationAreas /></Route>
       <Route path="/presentation_areas/:id"><PresentationAreas /></Route>
       <Route exact path="/presentation_subareas"><PresentationSubareas /></Route>
