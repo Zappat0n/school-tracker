@@ -14,31 +14,61 @@ exports[`Stock Match SnapShot 1`] = `
         <tr>
           <th
             className="column1"
-          />
+          >
+            <a
+              className="head-link"
+              href="/students/0/scores/"
+              onClick={[Function]}
+            />
+          </th>
           <th
             className="column2"
           >
-            John
+            <a
+              className="head-link"
+              href="/students/1/scores/"
+              onClick={[Function]}
+            >
+              John
+            </a>
           </th>
           <th
             className="column3"
           >
-            Peter
+            <a
+              className="head-link"
+              href="/students/2/scores/"
+              onClick={[Function]}
+            >
+              Peter
+            </a>
           </th>
           <th
             className="column4"
           >
-            Mark
+            <a
+              className="head-link"
+              href="/students/3/scores/"
+              onClick={[Function]}
+            >
+              Mark
+            </a>
           </th>
           <th
             className="column5"
           >
-            Louis
+            <a
+              className="head-link"
+              href="/students/4/scores/"
+              onClick={[Function]}
+            >
+              Louis
+            </a>
           </th>
         </tr>
       </thead>
       <tbody
-        className="table-body"
+        className="table-classroom-body"
       >
         <tr
           className="row"
