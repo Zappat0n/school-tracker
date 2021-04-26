@@ -18,7 +18,9 @@ const ClassroomRow = ({ presentationId, handleChange }) => {
             key={student.id}
             presentation={presentationId}
             student={student.id}
-            handleChange={handleChange}
+            handleChange={(event, presentation, student, id) => {
+              handleChange(event, presentation, student, id);
+            }}
           />
         ))
         }

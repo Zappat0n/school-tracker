@@ -14,7 +14,7 @@ const TableStudentScores = ({ id, title }) => {
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
 
-  async function query() {
+  async function requestData() {
     if (!token) return;
     const response = {
       tableName: request,
@@ -23,12 +23,11 @@ const TableStudentScores = ({ id, title }) => {
     if (response && response.data) dispatch(addTable(response));
   }
 
-  if (!table) query();
-
   const formatColumn = (text) => (text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()).replace('_', ' ').trim();
 
   useEffect(() => {
     dispatch(changeTitle(title));
+    requestData();
   }, []);
 
   return (

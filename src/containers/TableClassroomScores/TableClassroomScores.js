@@ -39,16 +39,16 @@ const TableClassroomScores = ({ id, title }) => {
     }
   }
 
-  async function updateScore(event, presentation, student, id) {
+  async function updateScore(event, presentation, student, eventId) {
     event.preventDefault();
     const score = getScore(event.target.value);
     if (!token) return;
-    const response = (!id) ? await postEvent(token, new Date().toISOString().split('T')[0], student, presentation, score)
-      : await updateEvent(token, id, new Date().toISOString().split('T')[0], student, presentation, score);
+    const response = (!eventId) ? await postEvent(token, new Date().toISOString().split('T')[0], student, presentation, score)
+      : await updateEvent(token, eventId, new Date().toISOString().split('T')[0], student, presentation, score);
 
     if (response) {
-      // id = response;
       dispatch(saveScore({
+        id: response.id,
         presentation,
         student,
         score,
@@ -86,12 +86,15 @@ const TableClassroomScores = ({ id, title }) => {
                   <ClassroomRow
                     key={presentation.id}
                     presentationId={presentation.id}
-                    handleChange={updateScore}
+                    handleChange={
+                      (event, presentation, student, id) => {
+                        updateScore(event, presentation, student, id);
+                      }
+                    }
                   />
                 ),
               )
               }
-              {/* table.data.map((row) => <Row key={row.id} data={row} />) */}
             </tbody>
           </table>
         </div>

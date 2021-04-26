@@ -23,9 +23,14 @@ export const userSlice = createSlice({
       const { tableName, headers, data } = action.payload;
       state.tables[tableName] = { headers, data };
     },
+    removeTable: (state, action) => {
+      delete state.tables[action.payload];
+    },
   },
 });
 
-export const { addTable, changeTitle, save } = userSlice.actions;
+export const {
+  addTable, changeTitle, removeTable, save,
+} = userSlice.actions;
 
 export default userSlice.reducer;
