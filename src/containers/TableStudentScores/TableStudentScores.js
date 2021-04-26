@@ -20,7 +20,6 @@ const TableStudentScores = ({ id, title }) => {
       tableName: request,
       data: await getIndex(token, request),
     };
-    console.log(response);
     if (response && response.data) dispatch(addTable(response));
   }
 
