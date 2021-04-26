@@ -19,18 +19,6 @@ $primary-green: rgb(173, 220, 145);
   }
 }
 
-@mixin responsive-scores {
-  width: 95% !important;
-
-  @media (min-width: 768px) {
-    width: 90% !important;
-  }
-
-  @media (min-width: 1024px) {
-    width: 80% !important;
-  }
-}
-
 @mixin responsive-mini {
   width: 80% !important;
 
