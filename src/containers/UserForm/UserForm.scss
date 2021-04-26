@@ -1,7 +1,7 @@
 @import "../../index.scss";
 
 .user-form {
-  @include responsive;
+  @include responsive-mini;
 
   display: flex;
   flex-direction: column;

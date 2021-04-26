@@ -10,7 +10,7 @@ $primary-green: rgb(173, 220, 145);
 @mixin responsive {
   width: 95% !important;
 
-  @media (min-width: 800px) {
+  @media (min-width: 768px) {
     width: 85% !important;
   }
 
@@ -22,7 +22,7 @@ $primary-green: rgb(173, 220, 145);
 @mixin responsive-scores {
   width: 95% !important;
 
-  @media (min-width: 800px) {
+  @media (min-width: 768px) {
     width: 90% !important;
   }
 
@@ -31,10 +31,22 @@ $primary-green: rgb(173, 220, 145);
   }
 }
 
+@mixin responsive-mini {
+  width: 80% !important;
+
+  @media (min-width: 768px) {
+    width: 50% !important;
+  }
+
+  @media (min-width: 1024px) {
+    width: 40% !important;
+  }
+}
+
 @mixin big-font {
   font: normal normal 700 1rem/1.5rem 'Free Sans', sans-serif;
 
-  @media (min-width: 800px) {
+  @media (min-width: 768px) {
     font: normal normal 700 1.25rem/2rem 'Free Sans', sans-serif;
   }
 
@@ -46,7 +58,7 @@ $primary-green: rgb(173, 220, 145);
 @mixin small-font {
   font: normal normal 400 0.75rem/1rem 'Free Sans', sans-serif;
 
-  @media (min-width: 800px) {
+  @media (min-width: 768px) {
     font: normal normal 400 1rem/1.5rem 'Free Sans', sans-serif;
   }
 
