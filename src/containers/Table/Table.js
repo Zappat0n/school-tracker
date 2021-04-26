@@ -35,8 +35,8 @@ const Table = ({ tableName, id, title }) => {
           <table>
             <thead className="table-head">
               <tr>
-                {filterKeys(Object.keys(table.data[0])).map((value) => (
-                  <th className={`column_${value}`} key={value}>{formatColumn(value)}</th>
+                {filterKeys(Object.keys(table.data[0])).map((value, index) => (
+                  <th className={`column${index + 1}`} key={value}>{formatColumn(value)}</th>
                 ))}
                 {commands.length > 0 && <th key="commands">Commands</th>}
               </tr>

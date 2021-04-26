@@ -8,12 +8,53 @@ $primary-green: rgb(173, 220, 145);
 }
 
 @mixin responsive {
-  width: 80% !important;
+  width: 95% !important;
 
   @media (min-width: 800px) {
-    width: 40% !important;
+    width: 85% !important;
+  }
+
+  @media (min-width: 1024px) {
+    width: 80% !important;
   }
 }
+
+@mixin responsive-scores {
+  width: 95% !important;
+
+  @media (min-width: 800px) {
+    width: 90% !important;
+  }
+
+  @media (min-width: 1024px) {
+    width: 80% !important;
+  }
+}
+
+@mixin big-font {
+  font: normal normal 700 1rem/1.5rem 'Free Sans', sans-serif;
+
+  @media (min-width: 800px) {
+    font: normal normal 700 1.25rem/2rem 'Free Sans', sans-serif;
+  }
+
+  @media (min-width: 1024px) {
+    font: normal normal 700 1.5rem/3rem 'Free Sans', sans-serif;
+  }
+}
+
+@mixin small-font {
+  font: normal normal 400 0.75rem/1rem 'Free Sans', sans-serif;
+
+  @media (min-width: 800px) {
+    font: normal normal 400 1rem/1.5rem 'Free Sans', sans-serif;
+  }
+
+  @media (min-width: 1024px) {
+    font: normal normal 400 1.25rem/2rem 'Free Sans', sans-serif;
+  }
+}
+
 
 body {
   margin: 0;

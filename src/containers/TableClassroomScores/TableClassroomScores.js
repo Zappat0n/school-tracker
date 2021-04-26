@@ -72,7 +72,7 @@ const TableClassroomScores = ({ id, title }) => {
                 )}
               </tr>
             </thead>
-            <tbody className="table-body">
+            <tbody className="table-classroom-body">
               {
               (table.presentations ? table.presentations.slice(0, 10) : []).map(
                 (presentation) => (

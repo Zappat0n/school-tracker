@@ -1,7 +1,7 @@
 @import "../../index.scss";
 
 .container-table {
-  width: 80%;
+  @include responsive;
   margin: 0 auto;
   background: #fff;
 }
@@ -35,13 +35,14 @@ tbody {
   box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
 
   th {
-    font: normal normal 700 1.5rem/3rem 'Free Sans', sans-serif;
+    @include big-font;
     color: #fff;
+    text-align: center;
     background-color: $primary-blue;
   }
 
   td {
-    font: normal normal 400 1.2rem/2rem 'Free Sans', sans-serif;
+    @include small-font;
     text-align: center;
   }
 
@@ -55,5 +56,5 @@ tbody {
 }
 
 .column1 {
-  padding-left: 2rem;
+  padding-left: 0.5rem;
 }

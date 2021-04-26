@@ -8,7 +8,7 @@ const Row = (props) => {
   const drawButtons = () => (
     <td className="buttons">
       {commands.map((command) => (
-        <Link key={command.name} to={command.route.replace(':id', data.id)} assName="row-link">{command.name}</Link>
+        <Link key={command.name} to={command.route.replace(':id', data.id)} className="row-link">{command.name}</Link>
       ))}
     </td>
   );

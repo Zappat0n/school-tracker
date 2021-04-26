@@ -1,10 +1,32 @@
+@import "../../index.scss";
+
 .container-table-scores {
-  width: 100%;
+  @include responsive-scores;
   margin: 0 auto;
+}
+
+.table {
+  overflow:scroll;
 }
 
 .table-classroom-head {
   th {
-    font-size: 0.8rem;
+    @include small-font;
+  }
+}
+
+.table-classroom-body {
+
+  td, .combo {
+    @include small-font;
+
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8f6ff;
+  }
+
+  .row:hover {
+    background: lightgray !important;
   }
 }
