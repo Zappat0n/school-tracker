@@ -62,7 +62,7 @@ The scores are classified this way:
 
 ## Live Demo
 
-[Live Demo Link](https://zappat0n.github.io/screener/)
+[Live Demo Link](https://zappat0n.github.io/school-tracker/)
 
 ## Getting Started
 
