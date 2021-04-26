@@ -22,7 +22,7 @@ const Table = ({ tableName, id, title }) => {
 
   if (!table) query();
 
-  const formatColumn = (text) => (text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()).replace('_', ' ');
+  const formatColumn = (text) => (text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()).replace('_', ' ').trim();
 
   useEffect(() => {
     dispatch(changeTitle(title));
@@ -30,15 +30,15 @@ const Table = ({ tableName, id, title }) => {
 
   return (
     <div className="container-table">
-      {(table && table.data) ? (
+      {table && table.data && table.data.length > 0 && (
         <div className="table">
           <table>
             <thead className="table-head">
               <tr>
-                {filterKeys(Object.keys(table.data[0])).map((value, index) => (
-                  <th className={`column${index + 1}`} key={value}>{formatColumn(value)}</th>
+                {filterKeys(Object.keys(table.data[0])).map((value) => (
+                  <th className={`column_${value}`} key={value}>{formatColumn(value)}</th>
                 ))}
-                {commands.length > 0 ? <th key="commands">Commands</th> : ''}
+                {commands.length > 0 && <th key="commands">Commands</th>}
               </tr>
             </thead>
             <tbody className="table-body js-pscroll">
@@ -54,7 +54,7 @@ const Table = ({ tableName, id, title }) => {
             </tbody>
           </table>
         </div>
-      ) : ''}
+      )}
     </div>
   );
 };

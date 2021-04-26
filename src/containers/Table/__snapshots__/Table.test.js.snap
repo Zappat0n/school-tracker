@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Stock Match SnapShot 1`] = `
+exports[`Table Match SnapShot 1`] = `
 <div
   className="container-table"
 >
@@ -13,12 +13,14 @@ exports[`Stock Match SnapShot 1`] = `
       >
         <tr>
           <th
-            className="column1"
+            className="column_name"
           >
             Name
           </th>
-          <th>
-            Commands
+          <th
+            className="column_birth_date"
+          >
+            Birth date
           </th>
         </tr>
       </thead>
@@ -27,7 +29,6 @@ exports[`Stock Match SnapShot 1`] = `
       >
         <tr
           className="row"
-          onClick={[Function]}
         >
           <td
             className="column1"
@@ -35,20 +36,13 @@ exports[`Stock Match SnapShot 1`] = `
             John
           </td>
           <td
-            className="buttons"
+            className="column2"
           >
-            <button
-              type="button"
-            >
-              <i
-                className="fas fa-edit"
-              />
-            </button>
+            2018-01-01
           </td>
         </tr>
         <tr
           className="row"
-          onClick={[Function]}
         >
           <td
             className="column1"
@@ -56,20 +50,13 @@ exports[`Stock Match SnapShot 1`] = `
             Peter
           </td>
           <td
-            className="buttons"
+            className="column2"
           >
-            <button
-              type="button"
-            >
-              <i
-                className="fas fa-edit"
-              />
-            </button>
+            2018-01-01
           </td>
         </tr>
         <tr
           className="row"
-          onClick={[Function]}
         >
           <td
             className="column1"
@@ -77,20 +64,13 @@ exports[`Stock Match SnapShot 1`] = `
             Mark
           </td>
           <td
-            className="buttons"
+            className="column2"
           >
-            <button
-              type="button"
-            >
-              <i
-                className="fas fa-edit"
-              />
-            </button>
+            2018-01-01
           </td>
         </tr>
         <tr
           className="row"
-          onClick={[Function]}
         >
           <td
             className="column1"
@@ -98,15 +78,9 @@ exports[`Stock Match SnapShot 1`] = `
             Louis
           </td>
           <td
-            className="buttons"
+            className="column2"
           >
-            <button
-              type="button"
-            >
-              <i
-                className="fas fa-edit"
-              />
-            </button>
+            2018-01-01
           </td>
         </tr>
       </tbody>

@@ -13,18 +13,22 @@ test('Display title', () => {
       {
         id: 1,
         name: 'John',
+        birth_date: '2018-01-01',
       },
       {
         id: 2,
         name: 'Peter',
+        birth_date: '2018-01-01',
       },
       {
         id: 3,
         name: 'Mark',
+        birth_date: '2018-01-01',
       },
       {
         id: 4,
         name: 'Louis',
+        birth_date: '2018-01-01',
       },
     ],
   }));
@@ -43,7 +47,7 @@ test('Display title', () => {
   expect(screen.getByText('Louis')).toBeInTheDocument();
 });
 
-test('Stock Match SnapShot', () => {
+test('Table Match SnapShot', () => {
   const tree = rendererForComponent(
     <>
       <Table tableName="classrooms" id="1" title="Classrooms" />

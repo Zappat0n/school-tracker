@@ -5,16 +5,13 @@ import { filterKeys } from './TableUtils';
 const Row = (props) => {
   const { data, commands } = props;
 
-  const drawButtons = () => {
-    if (commands.length === 0) return '';
-    return (
-      <td className="buttons">
-        {commands.map((command) => (
-          <Link key={command.name} to={command.route.replace(':id', data.id)} className="row-link">{command.name}</Link>
-        ))}
-      </td>
-    );
-  };
+  const drawButtons = () => (
+    <td className="buttons">
+      {commands.map((command) => (
+        <Link key={command.name} to={command.route.replace(':id', data.id)} assName="row-link">{command.name}</Link>
+      ))}
+    </td>
+  );
 
   return (
     <>
@@ -24,7 +21,7 @@ const Row = (props) => {
             {data[key]}
           </td>
         ))}
-        {drawButtons()}
+        {commands.length !== 0 && drawButtons()}
       </tr>
     </>
   );

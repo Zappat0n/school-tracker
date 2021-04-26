@@ -60,13 +60,6 @@ Array [
     >
       Subareas
     </a>
-    <a
-      className="link"
-      href="/classrooms/1/scores/"
-      onClick={[Function]}
-    >
-      Scores
-    </a>
   </div>,
 ]
 `;
