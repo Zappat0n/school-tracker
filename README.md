@@ -1,44 +1,119 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-## Available Scripts
+# School tracking application
 
-In the project directory, you can run:
+![Top Page Screenshot](./src/assets/screenshot.png)
 
-### `yarn start`
+## Table of Contents
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [About the Project](#about-the-project)
+- [Description](#description)
+- [Built With](#built-with)
+- [Live Demo](#live-demo)
+- [Getting Started](#getting-started)
+- [Testing](#testing)
+- [Authors](#authors)
+- [Contributing](#contributing)
+- [Show your support](#show-your-support)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## About the Project
 
-### `yarn test`
+This is a web application to track the evolution of school students in the curriculum.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The front end is built with [React](https://reactjs.org/) and [Redux](https://redux.js.org/).
 
-### `yarn build`
+The back end is built with [Ruby on Rails](https://rubyonrails.org/), and has been deployed to [Heroku](https://www.heroku.com/)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[PostgreSQL](https://www.postgresql.org/) is the database employed to store the data.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Description
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+There is a menu where you can select:
+- Classroom: Here you can see all the classrooms of the school
+- Curriculum: To see the all the topics that are included in the curriculum
+- Subareas: The main categories in which the topics are divided
 
-### `yarn eject`
+### Classrooms
+If you select one of the classroom you can get a list of all the students that belong to that classroom. In any of these students there is a link to get all the scores assigned to that student.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Curriculum
+If you select one of the topics you will get all the subareas in which that topic is divided. If you click in any of these subareas you will get all that exercises that belong to that subrea.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Subareas
+If you click in any of the subareas you will get a list with all the exercises that are included in that subarea.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The scores are classified this way:
+- / : Close
+- ꓥ : Achived
+- 𐊅 : Exceeded
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Built With
 
-## Learn More
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Node package manager](https://www.npmjs.com/)
+- [Ruby](https://www.ruby-lang.org/en/)
+- [Ruby on Rails](https://rubyonrails.org/)
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS](https://www.w3schools.com/Css/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Live Demo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Live Demo Link](https://zappat0n.github.io/screener/)
+
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
+1. On the project GitHub page, navigate to the main page of the repository.
+2. Under the repository name, locate and click on a green button named `Code`.
+3. Copy the project URL as displayed.
+4. If you're running the Windows Operating System, open your command prompt. On Linux, Open your terminal.
+5. Change the current working directory to the location where you want the cloned directory to be made. Leave as it is if the current location is where you want the project to be.
+6. Type git clone, and then paste the URL you copied in Step 3. <br>
+   e.g. $ `git clone https://github.com/Zappat0n/school-tracker.git`
+7. Press Enter. Your local copy will be created.
+8. On your console, move to the place where this folder is cloned
+9. Create a file named `.env` in the root folder of the application with the following lines <br> `REACT_APP_SERVER=[address of the backend]`<br>
+`REACT_APP_CLIENT_ID=[id of the application in the backend]`<br>
+`REACT_APP_CLIENT_SECRET=[secret of the application in the backend]`
+10. Run `npm start`, then server is automatically opened
+
+## Getting Started
+
+To test the project you just need to run `npm run test`.
+
+## Authors
+
+👤 **Angel Barros**
+
+- GitHub: [@Zappat0n](https://github.com/Zappat0n)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/angel-barros/)
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome!
+Feel free to check the [issues page](../../issues).
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## License
+
+This project is [MIT](./LICENSE) licensed.
+
+## Acknowledgements
+
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Ruby on Rails](https://rubyonrails.org/)
