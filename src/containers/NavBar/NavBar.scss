@@ -7,7 +7,9 @@
 .nav-bar {
   display: flex;
   background: $primary-blue;
+
   @include big-font;
+
   color: white;
   padding: 0 1rem;
 
@@ -32,7 +34,9 @@
 .menu-content {
   width: 100%;
   background: white;
+
   @include big-font;
+
   border-bottom: 1px solid $primary-blue;
 
   a {

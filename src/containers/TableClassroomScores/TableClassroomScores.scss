@@ -7,7 +7,7 @@
 
 .table {
   @media (max-width: 768px) {
-    overflow:scroll;
+    overflow: scroll;
   }
 }
 
@@ -15,6 +15,7 @@
   th {
     @include small-font;
   }
+
   .head-link {
     color: white;
     font-weight: 700;
@@ -22,10 +23,9 @@
 }
 
 .table-classroom-body {
-
-  td, .combo {
+  td,
+  .combo {
     @include small-font;
-
   }
 
   tr:nth-child(even) {

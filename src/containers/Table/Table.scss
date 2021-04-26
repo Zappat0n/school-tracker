@@ -2,6 +2,7 @@
 
 .container-table {
   @include responsive;
+
   margin: 0 auto;
   background: #fff;
 }
@@ -36,6 +37,7 @@ tbody {
 
   th {
     @include big-font;
+
     color: #fff;
     text-align: center;
     background-color: $primary-blue;
@@ -43,6 +45,7 @@ tbody {
 
   td {
     @include small-font;
+
     text-align: center;
   }
 
