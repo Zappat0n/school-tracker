@@ -62,7 +62,7 @@ const TableClassroomScores = ({ id, title }) => {
 
   return (
     <div className="container-table-scores">
-      {(table.students.length > 0 && table.presentations.length > 0) ? (
+      {table.students.length > 0 && table.presentations.length > 0 && (
         <div className="table">
           <table>
             <thead className="table-classroom-head">
@@ -88,7 +88,7 @@ const TableClassroomScores = ({ id, title }) => {
             </tbody>
           </table>
         </div>
-      ) : ''}
+      )}
     </div>
   );
 };
