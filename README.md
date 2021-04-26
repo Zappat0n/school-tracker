@@ -24,7 +24,7 @@ This is a web application to track the evolution of school students in the curri
 
 The front end is built with [React](https://reactjs.org/) and [Redux](https://redux.js.org/).
 
-The back end is built with [Ruby on Rails](https://rubyonrails.org/), and has been deployed to [Heroku](https://www.heroku.com/)
+The back end is built with [Ruby on Rails](https://rubyonrails.org/) and has been deployed to [Heroku](https://www.heroku.com/)
 
 [PostgreSQL](https://www.postgresql.org/) is the database employed to store the data.
 
@@ -32,22 +32,22 @@ The back end is built with [Ruby on Rails](https://rubyonrails.org/), and has be
 
 There is a menu where you can select:
 - Classroom: Here you can see all the classrooms of the school
-- Curriculum: To see the all the topics that are included in the curriculum
+- Curriculum: To see all the topics that are included in the curriculum
 - Subareas: The main categories in which the topics are divided
 
 ### Classrooms
-If you select one of the classroom you can get a list of all the students that belong to that classroom. In any of these students there is a link to get all the scores assigned to that student.
+If you select one of the classrooms you can get a list of all the students that belong to that classroom. In any of these students, there is a link to get all the scores assigned to that student.
 
 ### Curriculum
-If you select one of the topics you will get all the subareas in which that topic is divided. If you click in any of these subareas you will get all that exercises that belong to that subrea.
+If you select one of the topics you will get all the subareas in which that topic is divided. If you click in any of these subareas you will get all the exercises that belong to that subarea.
 
 ### Subareas
 If you click in any of the subareas you will get a list with all the exercises that are included in that subarea.
 
 The scores are classified this way:
-- / : Close
-- ꓥ : Achived
-- 𐊅 : Exceeded
+- /: Close
+- ꓥ: Reached
+- 𐊅: Exceeded
 
 ## Built With
 
@@ -80,7 +80,7 @@ To get a local copy up and running follow these simple example steps.
 9. Create a file named `.env` in the root folder of the application with the following lines <br> `REACT_APP_SERVER=[address of the backend]`<br>
 `REACT_APP_CLIENT_ID=[id of the application in the backend]`<br>
 `REACT_APP_CLIENT_SECRET=[secret of the application in the backend]`
-10. Run `npm start`, then server is automatically opened
+10. Run `npm start`, then the server is automatically opened
 
 ## Getting Started
 
