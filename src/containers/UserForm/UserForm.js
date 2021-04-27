@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { logIn, signUp } from '../../api/queries';
 import { changeTitle, save } from '../../slices/userSlice';
+import REACT_APP_NAME from '../../constants';
 import './UserForm.scss';
 
 const UserForm = (props) => {
@@ -39,10 +40,10 @@ const UserForm = (props) => {
 
     if (action === 'Log In') {
       const response = await getLogIn(email.value, password.value);
-      if (response) history.push('/classrooms/');
+      if (response) history.push(`${REACT_APP_NAME}/classrooms/`);
     } else {
       const response = await (getSignUp(email.value, password.value));
-      if (response) history.push('/classrooms/');
+      if (response) history.push(`${REACT_APP_NAME}/classrooms/`);
     }
     return false;
   }
@@ -66,7 +67,7 @@ const UserForm = (props) => {
           {action}
         </button>
         <div className="link-container">
-          {action === 'Log In' ? <Link to="/user/signup" className="link">Sign up</Link> : <Link to="/user/signin" className="link">Log In</Link> }
+          {action === 'Log In' ? <Link to={`${REACT_APP_NAME}/user/signup`} className="link">Sign up</Link> : <Link to={`${REACT_APP_NAME}/user/signin`} className="link">Log In</Link> }
         </div>
       </section>
     </form>

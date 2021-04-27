@@ -8,6 +8,7 @@ import ClassroomRow from './ClassroomRow';
 import {
   saveScore, savePresentations, saveScores, saveStudents,
 } from '../../slices/classroomTableSlice';
+import REACT_APP_NAME from '../../constants';
 import './TableClassroomScores.scss';
 
 const TableClassroomScores = ({ id, title }) => {
@@ -71,7 +72,7 @@ const TableClassroomScores = ({ id, title }) => {
                 {(table.students ? [{ id: 0 }].concat(table.students) : []).map(
                   (student, index) => (
                     <th className={`column${index + 1}`} key={student.id}>
-                      <Link to={`/students/${student.id}/scores/`} className="head-link">
+                      <Link to={`${REACT_APP_NAME}/students/${student.id}/scores/`} className="head-link">
                         {student.name}
                       </Link>
                     </th>
