@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   tables: {},
   title: '',
+  errors: [],
 };
 
 export const userSlice = createSlice({
@@ -11,9 +12,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     save: (state, action) => {
-      const { email, password, token } = action.payload;
-      state.email = email;
-      state.password = password;
+      const { token } = action.payload;
       state.token = token;
     },
     changeTitle: (state, action) => {
@@ -26,11 +25,14 @@ export const userSlice = createSlice({
     removeTable: (state, action) => {
       delete state.tables[action.payload];
     },
+    setError: (state, action) => {
+      state.errors = action.payload;
+    },
   },
 });
 
 export const {
-  addTable, changeTitle, removeTable, save,
+  addTable, changeTitle, removeTable, save, setError,
 } = userSlice.actions;
 
 export default userSlice.reducer;

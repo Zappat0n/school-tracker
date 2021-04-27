@@ -5,6 +5,7 @@ import SignIn from './routes/SignIn/SignIn';
 import SignUp from './routes/SignUp/SignUp';
 import Classrooms from './routes/Classrooms/Classrooms';
 import Students from './routes/Students/Students';
+import ErrorDisplayer from './containers/ErrorDisplayer/ErrorDisplayer';
 import PresentationAreas from './routes/PresentationAreas/PresentationAreas';
 import PresentationSubareas from './routes/PresentationSubareas/PresentationSubareas';
 import ClassroomScores from './routes/ClassroomScores/ClassroomScores';
@@ -15,7 +16,7 @@ const Routes = () => (
   <BrowserRouter>
     <header>
       <NavBar />
-      <div className="errors" />
+      <ErrorDisplayer message="" />
     </header>
     <Switch>
       <Route path={`${REACT_APP_NAME}/user/signin`}><SignIn /></Route>

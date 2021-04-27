@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import requestTable from './TableQueries';
-import { addTable, changeTitle } from '../../slices/userSlice';
+import { addTable, changeTitle, setError } from '../../slices/userSlice';
 import { filterKeys, getCommands } from './TableUtils';
 import Row from './Row';
 import './Table.scss';
@@ -18,6 +18,7 @@ const Table = ({ tableName, id, title }) => {
     if (!token) return;
     const response = await requestTable(request, token);
     if (response && response.data) dispatch(addTable(response));
+    else dispatch(setError(response.errors));
   }
 
   if (!table) query();

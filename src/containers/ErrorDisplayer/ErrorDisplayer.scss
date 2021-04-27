@@ -1,0 +1,12 @@
+@import "../../index.scss";
+
+.errors {
+  @include big-font;
+
+  font-weight: 400 !important;
+  color: red;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  text-shadow: 1px 1px 2px gray;
+}

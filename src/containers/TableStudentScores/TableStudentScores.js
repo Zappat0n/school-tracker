@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTable, changeTitle } from '../../slices/userSlice';
+import { addTable, changeTitle, setError } from '../../slices/userSlice';
 import { getIndex } from '../../api/queries';
 import { filterKeys, getCommands } from '../Table/TableUtils';
 import Row from './Row';
@@ -21,6 +21,7 @@ const TableStudentScores = ({ id, title }) => {
       data: await getIndex(token, request),
     };
     if (response && response.data) dispatch(addTable(response));
+    else dispatch(setError(response.errors));
   }
 
   const formatColumn = (text) => (text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()).replace('_', ' ').trim();

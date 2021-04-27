@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeTitle } from '../../slices/userSlice';
+import { changeTitle, setError } from '../../slices/userSlice';
 import { getIndex, postEvent, updateEvent } from '../../api/queries';
 import ClassroomRow from './ClassroomRow';
 import {
@@ -37,7 +37,7 @@ const TableClassroomScores = ({ id, title }) => {
       dispatch(saveStudents(response.data.students));
       dispatch(savePresentations(response.data.presentations));
       dispatch(saveScores(response.data.events));
-    }
+    } else dispatch(setError(response.errors));
   }
 
   async function updateScore(event, presentation, student, eventId) {
@@ -54,7 +54,7 @@ const TableClassroomScores = ({ id, title }) => {
         student,
         score,
       }));
-    }
+    } else dispatch(setError(response.errors));
   }
 
   useEffect(() => {
