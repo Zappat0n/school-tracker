@@ -12,7 +12,7 @@ import REACT_APP_NAME from '../../constants';
 import './TableClassroomScores.scss';
 
 const TableClassroomScores = ({ id, title }) => {
-  const request = `classrooms/${id}/scores/`;
+  const request = `events/${id}`;
   const table = useSelector((state) => state.classroomTable);
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
@@ -72,7 +72,7 @@ const TableClassroomScores = ({ id, title }) => {
                 {(table.students ? [{ id: 0 }].concat(table.students) : []).map(
                   (student, index) => (
                     <th className={`column${index + 1}`} key={student.id}>
-                      <Link to={`${REACT_APP_NAME}/students/${student.id}/scores/`} className="head-link">
+                      <Link to={`${REACT_APP_NAME}/students/${student.id}`} className="head-link">
                         {student.name}
                       </Link>
                     </th>

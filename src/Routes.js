@@ -27,8 +27,8 @@ const Routes = () => (
       <Route path={`${REACT_APP_NAME}/presentation_areas/:id`}><PresentationAreas /></Route>
       <Route exact path={`${REACT_APP_NAME}/presentation_subareas`}><PresentationSubareas /></Route>
       <Route path={`${REACT_APP_NAME}/presentation_subareas/:id`}><PresentationSubareas /></Route>
-      <Route path={`${REACT_APP_NAME}/classrooms/:id/scores`}><ClassroomScores /></Route>
-      <Route path={`${REACT_APP_NAME}/students/:id/scores`}><StudentScores /></Route>
+      <Route path={`${REACT_APP_NAME}/events/:id`}><ClassroomScores /></Route>
+      <Route path={`${REACT_APP_NAME}/students/:id`}><StudentScores /></Route>
     </Switch>
   </BrowserRouter>
 );

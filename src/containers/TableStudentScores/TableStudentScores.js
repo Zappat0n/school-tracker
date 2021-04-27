@@ -8,7 +8,7 @@ import Row from './Row';
 import '../Table/Table.scss';
 
 const TableStudentScores = ({ id, title }) => {
-  const request = `students/${id}/scores/`;
+  const request = `/students/${id}`;
   const commands = getCommands(request);
   const table = useSelector((state) => state.user.tables[request]);
   const token = useSelector((state) => state.user.token);

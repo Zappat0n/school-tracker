@@ -5,11 +5,11 @@ const filterKeys = (array) => array.filter((key) => (!['id', 'created_at', 'upda
 const getCommands = (table) => {
   if (table.startsWith('classrooms')) {
     if (table.includes('/')) {
-      return [{ name: 'scores', route: `${REACT_APP_NAME}/students/:id/scores` }];
+      return [{ name: 'scores', route: `${REACT_APP_NAME}/students/:id` }];
     }
     return [
       { name: 'list', route: `${REACT_APP_NAME}/classrooms/:id` },
-      { name: 'scores', route: `${REACT_APP_NAME}/classrooms/:id/scores` },
+      { name: 'scores', route: `${REACT_APP_NAME}/events/:id` },
     ];
   }
 
