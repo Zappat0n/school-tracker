@@ -26,12 +26,12 @@ async function query(request) {
   }
 }
 
-async function logIn(email, password) {
-  return query(logInRequest(email, password));
+async function logIn(username, password) {
+  return query(logInRequest(username, password));
 }
 
-async function signUp(email, password) {
-  const response = await query(signUpRequest(email, password));
+async function signUp(username, password) {
+  const response = await query(signUpRequest(username, password));
   return response;
 }
 

@@ -1,33 +1,29 @@
 require('dotenv').config();
 
-export const signUpRequest = (email, password) => new Request(
-  `${process.env.REACT_APP_SERVER}/users/`,
+export const signUpRequest = (username, password) => new Request(
+  `${process.env.REACT_APP_SERVER}/users`,
   {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
     },
     body: `{
-      "email" : "${email}",
-      "password" : "${password}",
-      "client_id" : "${process.env.REACT_APP_CLIENT_ID}"
+      "username" : "${username}",
+      "password" : "${password}"
     }`,
   },
 );
 
-export const logInRequest = (email, password) => new Request(
-  `${process.env.REACT_APP_SERVER}/oauth/token/`,
+export const logInRequest = (username, password) => new Request(
+  `${process.env.REACT_APP_SERVER}/auth/login`,
   {
     method: 'POST',
     headers: {
       'content-Type': 'application/json',
     },
     body: `{
-      "grant_type" : "password",
-      "email" : "${email}",
-      "password" : "${password}",
-      "client_id" : "${process.env.REACT_APP_CLIENT_ID}",
-      "client_secret" : "${process.env.REACT_APP_CLIENT_SECRET}"
+      "username" : "${username}",
+      "password" : "${password}"
     }`,
   },
 );
