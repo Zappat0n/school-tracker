@@ -4,7 +4,7 @@ import REACT_APP_NAME from '../../constants';
 import './NavBar.scss';
 
 const NavBar = () => {
-  const title = useSelector((state) => state.user.title);
+  const title = useSelector((state) => state.title);
 
   const toggleMenu = (e) => {
     e.preventDefault();

@@ -2,19 +2,17 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeTitle, setError } from '../../slices/userSlice';
+import {
+  saveScore, savePresentations, saveScores, saveStudents, changeTitle, setError,
+} from '../../reducers/actions';
 import { getIndex, postEvent, updateEvent } from '../../api/queries';
 import ClassroomRow from './ClassroomRow';
-import {
-  saveScore, savePresentations, saveScores, saveStudents,
-} from '../../slices/classroomTableSlice';
 import REACT_APP_NAME from '../../constants';
 import './TableClassroomScores.scss';
 
 const TableClassroomScores = ({ id, title }) => {
   const request = `events/${id}`;
-  const table = useSelector((state) => state.classroomTable);
-  const token = useSelector((state) => state.user.token);
+  const table = useSelector((state) => state.classroomTableReducer);
   const dispatch = useDispatch();
 
   const getScore = (value) => {
@@ -28,11 +26,11 @@ const TableClassroomScores = ({ id, title }) => {
   };
 
   async function requestData() {
-    if (!token) return;
     const response = {
       tableName: request,
-      data: await getIndex(token, request),
+      data: await getIndex(request),
     };
+    console.log(response);
     if (response && response.data) {
       dispatch(saveStudents(response.data.students));
       dispatch(savePresentations(response.data.presentations));
@@ -43,9 +41,8 @@ const TableClassroomScores = ({ id, title }) => {
   async function updateScore(event, presentation, student, eventId) {
     event.preventDefault();
     const score = getScore(event.target.value);
-    if (!token) return;
-    const response = (!eventId) ? await postEvent(token, new Date().toISOString().split('T')[0], student, presentation, score)
-      : await updateEvent(token, eventId, new Date().toISOString().split('T')[0], student, presentation, score);
+    const response = (!eventId) ? await postEvent(new Date().toISOString().split('T')[0], student, presentation, score)
+      : await updateEvent(eventId, new Date().toISOString().split('T')[0], student, presentation, score);
 
     if (response) {
       dispatch(saveScore({

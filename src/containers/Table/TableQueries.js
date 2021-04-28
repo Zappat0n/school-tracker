@@ -1,20 +1,20 @@
 import { getIndex } from '../../api/queries';
 
-async function getIndexTable(tableName, token) {
-  const response = await getIndex(token, tableName);
+async function getIndexTable(tableName) {
+  const response = await getIndex(tableName);
   return {
     tableName,
     data: response,
   };
 }
 
-async function requestTable(request, token) {
+async function requestTable(request) {
   const sections = request.split('/');
   switch (sections[0]) {
     case 'classrooms':
     case 'students':
     case 'presentation_areas':
-    case 'presentation_subareas': return getIndexTable(request, token);
+    case 'presentation_subareas': return getIndexTable(request);
     default: return null;
   }
 }

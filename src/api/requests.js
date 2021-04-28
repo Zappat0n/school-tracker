@@ -1,3 +1,5 @@
+import storage from '../storage/storage';
+
 require('dotenv').config();
 
 export const signUpRequest = (username, password) => new Request(
@@ -28,7 +30,7 @@ export const logInRequest = (username, password) => new Request(
   },
 );
 
-export const logOutRequest = (token, username, password) => new Request(
+export const logOutRequest = (username, password) => new Request(
   `${process.env.REACT_APP_SERVER}/oauth/revoke`,
   {
     method: 'POST',
@@ -36,20 +38,20 @@ export const logOutRequest = (token, username, password) => new Request(
       Authorization: `Basic ${Buffer.from(`${username}:${password}`).toString('base64')}`,
     },
     body: JSON.stringify({
-      token,
+      token: storage.load(),
       client_id: process.env.REACT_APP_CLIENT_ID,
       client_secret: process.env.REACT_APP_CLIENT_SECRET,
     }),
   },
 );
 
-export const postEventRequest = (token, date, student, presentation, score) => new Request(
+export const postEventRequest = (date, student, presentation, score) => new Request(
   `${process.env.REACT_APP_SERVER}/events`,
   {
     method: 'POST',
     headers: {
       'content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${storage.load()}`,
     },
     body: `{
       "date" : "${date}",
@@ -60,13 +62,13 @@ export const postEventRequest = (token, date, student, presentation, score) => n
   },
 );
 
-export const updateEventRequest = (token, id, date, student, presentation, score) => new Request(
+export const updateEventRequest = (id, date, student, presentation, score) => new Request(
   `${process.env.REACT_APP_SERVER}/events/${id}`,
   {
     method: 'PUT',
     headers: {
       'content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${storage.load()}`,
     },
     body: `{
       "date" : "${date}",
@@ -77,12 +79,12 @@ export const updateEventRequest = (token, id, date, student, presentation, score
   },
 );
 
-export const getIndexRequest = (token, controller) => new Request(
+export const getIndexRequest = (controller) => new Request(
   `${process.env.REACT_APP_SERVER}/${controller}`,
   {
     method: 'GET',
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${storage.load()}`,
     },
   },
 );

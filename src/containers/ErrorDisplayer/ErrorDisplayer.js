@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setError } from '../../slices/userSlice';
+import { setError } from '../../reducers/actions';
 import './ErrorDisplayer.scss';
 
 const ErrorDisplayer = () => {
-  const messages = useSelector((state) => state.user.errors);
+  const messages = useSelector((state) => state.errors || []);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const ComboBox = (props) => {
   const { presentation, student, handleChange } = props;
-  const score = useSelector((state) => state.classroomTable.scores[`${presentation}-${student}`] || 0);
+  const score = useSelector((state) => state.classroomTableReducer.scores[`${presentation}-${student}`] || 0);
 
   const getSign = () => {
     switch (score.score) {

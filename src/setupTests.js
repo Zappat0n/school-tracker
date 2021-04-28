@@ -8,8 +8,8 @@ import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom/extend-expect';
-import userReducer from './slices/userSlice';
-import classroomTableReducer from './slices/classroomTableSlice';
+import userReducer from './reducers/userSlice.old';
+import classroomTableReducer from './reducers/classroomTableSlice.old';
 
 const rootReducer = combineReducers({
   user: userReducer, classroomTable: classroomTableReducer,

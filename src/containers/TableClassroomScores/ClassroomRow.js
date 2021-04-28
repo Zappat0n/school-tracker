@@ -4,9 +4,11 @@ import ComboBox from './ComboBox';
 
 const ClassroomRow = ({ presentationId, handleChange }) => {
   const presentation = useSelector(
-    (state) => state.classroomTable.presentations.filter((value) => value.id === presentationId)[0],
+    (state) => state.classroomTableReducer.presentations.filter(
+      (value) => value.id === presentationId,
+    )[0],
   );
-  const students = useSelector((state) => state.classroomTable.students);
+  const students = useSelector((state) => state.classroomTableReducer.students);
 
   return (
     <>
