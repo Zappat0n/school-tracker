@@ -19,7 +19,7 @@ const UserForm = (props) => {
 
   async function getLogIn(username, password) {
     const response = await logIn(username, password);
-    if (response.token) {
+    if (response && response.token) {
       storage.save(response.token);
       return true;
     }
@@ -33,7 +33,7 @@ const UserForm = (props) => {
 
   async function getSignUp(username, password) {
     const response = await signUp(username, password);
-    if (response.data) return (response && getLogIn(username, password));
+    if (response && response.username) return (response && getLogIn(username, password));
     dispatch(setError(response.errors));
     return false;
   }

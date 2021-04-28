@@ -12,9 +12,7 @@ async function query(request) {
   }
 }
 
-async function logIn(username, password) {
-  return query(logInRequest(username, password));
-}
+const logIn = async (username, password) => query(logInRequest(username, password));
 
 async function signUp(username, password) {
   const response = await query(signUpRequest(username, password));

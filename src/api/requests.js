@@ -10,8 +10,11 @@ export const signUpRequest = (username, password) => new Request(
       'content-type': 'application/json',
     },
     body: `{
-      "username" : "${username}",
-      "password" : "${password}"
+      "user" : {
+        "username" : "${username}",
+        "password" : "${password}",
+        "password_confirmation" : "${password}"
+      }
     }`,
   },
 );

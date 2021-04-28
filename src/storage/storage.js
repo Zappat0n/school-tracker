@@ -10,7 +10,7 @@ const storageManager = () => {
   };
 
   const save = (token) => {
-    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.token = JSON.stringify(token);
   };
 
   return { load, save };
