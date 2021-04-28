@@ -4,7 +4,7 @@ import { setError } from '../../reducers/actions';
 import './ErrorDisplayer.scss';
 
 const ErrorDisplayer = () => {
-  const messages = useSelector((state) => state.errors || []);
+  const messages = useSelector((state) => state.userReducer.errors || []);
   const dispatch = useDispatch();
 
   useEffect(() => {
