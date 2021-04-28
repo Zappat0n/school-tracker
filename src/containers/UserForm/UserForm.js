@@ -17,9 +17,6 @@ const UserForm = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  console.log(username);
-  // console.log(password);
-
   async function getLogIn(username, password) {
     const response = await logIn(username, password);
     if (response.token) {

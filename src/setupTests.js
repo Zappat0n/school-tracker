@@ -8,19 +8,23 @@ import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import '@testing-library/jest-dom/extend-expect';
-import userReducer from './reducers/userSlice.old';
-import classroomTableReducer from './reducers/classroomTableSlice.old';
+import userReducer from './reducers/userReducer';
+import classroomTableReducer from './reducers/classroomTableReducer';
 
 const rootReducer = combineReducers({
-  user: userReducer, classroomTable: classroomTableReducer,
+  userReducer, classroomTableReducer,
 });
 
 const initialState = {
-  user: {
-    tables: {},
+  userReducer: {
+    username: '',
+    password: '',
     title: '',
+    token: '',
+    errors: [],
+    tables: {},
   },
-  classroomTable: {
+  classroomTableReducer: {
     students: [],
     presentations: [],
     scores: {},

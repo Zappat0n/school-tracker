@@ -30,7 +30,6 @@ const TableClassroomScores = ({ id, title }) => {
       tableName: request,
       data: await getIndex(request),
     };
-    console.log(response);
     if (response && response.data) {
       dispatch(saveStudents(response.data.students));
       dispatch(savePresentations(response.data.presentations));

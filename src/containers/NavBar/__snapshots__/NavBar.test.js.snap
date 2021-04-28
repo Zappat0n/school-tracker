@@ -27,7 +27,7 @@ Array [
     >
       <a
         className="link"
-        href="/user/signin"
+        href="/school-tracker/user/signin"
         onClick={[Function]}
       >
         <i
@@ -41,21 +41,21 @@ Array [
   >
     <a
       className="link"
-      href="/classrooms/"
+      href="/school-tracker/classrooms/"
       onClick={[Function]}
     >
       Classrooms
     </a>
     <a
       className="link"
-      href="/presentation_areas/"
+      href="/school-tracker/presentation_areas/"
       onClick={[Function]}
     >
       Curriculum
     </a>
     <a
       className="link"
-      href="/presentation_subareas/"
+      href="/school-tracker/presentation_subareas/"
       onClick={[Function]}
     >
       Subareas

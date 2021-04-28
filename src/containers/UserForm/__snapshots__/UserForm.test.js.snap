@@ -6,15 +6,17 @@ exports[`Stock Match SnapShot 1`] = `
   onSubmit={[Function]}
 >
   <section
-    className="email"
+    className="username"
   >
     <label
-      htmlFor="email"
+      htmlFor="username"
     >
-      Email
+      Username
       <input
-        id="email"
+        id="username"
+        onChange={[Function]}
         type="text"
+        value=""
       />
     </label>
   </section>
@@ -28,7 +30,9 @@ exports[`Stock Match SnapShot 1`] = `
       <input
         autoComplete="on"
         id="password"
+        onChange={[Function]}
         type="password"
+        value=""
       />
     </label>
   </section>
@@ -46,7 +50,7 @@ exports[`Stock Match SnapShot 1`] = `
     >
       <a
         className="link"
-        href="/user/signup"
+        href="/school-tracker/user/signup"
         onClick={[Function]}
       >
         Sign up

@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { screen } from '@testing-library/react';
 import { renderComponent, rendererForComponent, store } from '../../setupTests';
 import Table from './Table';
-import { addTable } from '../../slices/userSlice';
+import { addTable } from '../../reducers/actions';
 
 test('Display title', () => {
   store.dispatch(addTable({
@@ -39,7 +39,7 @@ test('Display title', () => {
     </>,
   );
 
-  expect(store.getState().user.tables['classrooms/1'].data.length).toBe(4);
+  expect(store.getState().userReducer.tables['classrooms/1'].data.length).toBe(4);
   expect(screen.getByText('Name')).toBeInTheDocument();
   expect(screen.getByText('John')).toBeInTheDocument();
   expect(screen.getByText('Peter')).toBeInTheDocument();

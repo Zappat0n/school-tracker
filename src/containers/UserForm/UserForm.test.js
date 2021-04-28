@@ -11,7 +11,7 @@ beforeAll(() => renderComponent(
 ));
 
 test('Display title', () => {
-  expect(store.getState().user.title).toBe('Log In');
+  expect(store.getState().userReducer.title).toBe('Log In');
 });
 
 test('Renders Input fields correctly', () => {
@@ -21,9 +21,9 @@ test('Renders Input fields correctly', () => {
     </>,
   );
 
-  const inputEmail = screen.getByLabelText('Email');
-  expect(inputEmail).toBeInTheDocument();
-  expect(inputEmail).toHaveAttribute('type', 'text');
+  const inputUsername = screen.getByLabelText('Username');
+  expect(inputUsername).toBeInTheDocument();
+  expect(inputUsername).toHaveAttribute('type', 'text');
 
   const inputPassword = screen.getByLabelText('Password');
   expect(inputPassword).toBeInTheDocument();

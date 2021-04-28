@@ -48,7 +48,7 @@ exports[`Table Match SnapShot 1`] = `
           >
             <a
               className="row-link"
-              href="/students/1/scores"
+              href="/school-tracker/students/1"
               onClick={[Function]}
             >
               scores
@@ -73,7 +73,7 @@ exports[`Table Match SnapShot 1`] = `
           >
             <a
               className="row-link"
-              href="/students/2/scores"
+              href="/school-tracker/students/2"
               onClick={[Function]}
             >
               scores
@@ -98,7 +98,7 @@ exports[`Table Match SnapShot 1`] = `
           >
             <a
               className="row-link"
-              href="/students/3/scores"
+              href="/school-tracker/students/3"
               onClick={[Function]}
             >
               scores
@@ -123,7 +123,7 @@ exports[`Table Match SnapShot 1`] = `
           >
             <a
               className="row-link"
-              href="/students/4/scores"
+              href="/school-tracker/students/4"
               onClick={[Function]}
             >
               scores
