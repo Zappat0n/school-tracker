@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { logIn, signUp } from '../../api/queries';
-import { changeTitle, setError, saveUsername } from '../../reducers/actions';
+import { changeTitle, saveUsername } from '../../reducers/actions';
 import REACT_APP_NAME from '../../constants';
 import './UserForm.scss';
 import storage from '../../storage/storage';
 
 const UserForm = (props) => {
-  const { action } = props;
+  const { action, handleError } = props;
   const username = useSelector((state) => state.userReducer.username);
   const [password, setPassword] = useState('');
   const history = useHistory();
@@ -21,7 +21,7 @@ const UserForm = (props) => {
       storage.save(response.token);
       return true;
     }
-    dispatch(setError(response.errors));
+    handleError(response.errors);
     return false;
   }
 
@@ -32,7 +32,7 @@ const UserForm = (props) => {
   async function getSignUp(username, password) {
     const response = await signUp(username, password);
     if (response && response.username) return (response && getLogIn(username, password));
-    dispatch(setError(response.errors));
+    handleError(response.errors);
     return false;
   }
 
@@ -88,6 +88,7 @@ const UserForm = (props) => {
 
 UserForm.propTypes = {
   action: PropTypes.string.isRequired,
+  handleError: PropTypes.func.isRequired,
 };
 
 export default UserForm;

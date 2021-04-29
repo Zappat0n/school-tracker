@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import Table from '../../containers/Table/Table';
 
-const Classrooms = () => {
+const Classrooms = ({ setErrors }) => {
   const { id } = useParams();
 
   return (
@@ -9,6 +10,7 @@ const Classrooms = () => {
       <Table
         tableName="classrooms"
         id={id}
+        handleError={(messages) => setErrors(messages)}
         title={id ? 'Students' : 'Classrooms'}
         commands={
         [
@@ -26,4 +28,9 @@ const Classrooms = () => {
     </>
   );
 };
+
+Classrooms.propTypes = {
+  setErrors: PropTypes.func.isRequired,
+};
+
 export default Classrooms;

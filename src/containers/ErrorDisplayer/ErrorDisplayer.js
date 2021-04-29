@@ -1,18 +1,13 @@
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setError } from '../../reducers/actions';
 import './ErrorDisplayer.scss';
 
-const ErrorDisplayer = () => {
-  const messages = useSelector((state) => state.userReducer.errors);
-  const dispatch = useDispatch();
-
+const ErrorDisplayer = ({ messages, setMessages }) => {
   useEffect(() => {
-    console.log(messages);
     if (!messages || messages.length === 0) return null;
 
     const id = setInterval(() => {
-      dispatch(setError([]));
+      setMessages([]);
     }, 3000);
     return () => clearInterval(id);
   });
@@ -29,6 +24,15 @@ const ErrorDisplayer = () => {
       {displayErrors()}
     </div>
   );
+};
+
+ErrorDisplayer.defaultProps = {
+  messages: [],
+};
+
+ErrorDisplayer.propTypes = {
+  messages: PropTypes.instanceOf(Object),
+  setMessages: PropTypes.func.isRequired,
 };
 
 export default ErrorDisplayer;
