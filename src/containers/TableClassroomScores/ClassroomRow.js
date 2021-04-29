@@ -1,38 +1,29 @@
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import ComboBox from './ComboBox';
 
-const ClassroomRow = ({ presentationId, handleChange }) => {
-  const presentation = useSelector(
-    (state) => state.classroomTableReducer.presentations.filter(
-      (value) => value.id === presentationId,
-    )[0],
-  );
-  const students = useSelector((state) => state.classroomTableReducer.students);
-
-  return (
-    <>
-      <tr className="row">
-        <td>{presentation.name}</td>
-        {
-        (students || []).map((student) => (
-          <ComboBox
-            key={student.id}
-            presentation={presentationId}
-            student={student.id}
-            handleChange={(event, presentation, student, id) => {
-              handleChange(event, presentation, student, id);
-            }}
-          />
-        ))
-        }
-      </tr>
-    </>
-  );
-};
+const ClassroomRow = ({ presentation, students, handleChange }) => (
+  <>
+    <tr className="row">
+      <td>{presentation.name}</td>
+      {
+      (students || []).map((student) => (
+        <ComboBox
+          key={student.id}
+          presentation={presentation.id}
+          student={student.id}
+          handleChange={(event, presentation, student, id) => {
+            handleChange(event, presentation, student, id);
+          }}
+        />
+      ))
+      }
+    </tr>
+  </>
+);
 
 ClassroomRow.propTypes = {
-  presentationId: PropTypes.number.isRequired,
+  presentation: PropTypes.instanceOf(Object).isRequired,
+  students: PropTypes.instanceOf(Object).isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

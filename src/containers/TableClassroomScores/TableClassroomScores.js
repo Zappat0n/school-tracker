@@ -3,17 +3,17 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {
-  saveScore, saveScores, changeTitle, setError,
+  saveScore, saveScores, changeTitle,
 } from '../../reducers/actions';
 import { getIndex, postEvent, updateEvent } from '../../api/queries';
 import ClassroomRow from './ClassroomRow';
 import REACT_APP_NAME from '../../constants';
 import './TableClassroomScores.scss';
 
-const TableClassroomScores = ({ id, title }) => {
+const TableClassroomScores = ({ id, title, handleError }) => {
   const request = `events/${id}`;
-  const { students, setStudents } = useState([]);
-  const { presentations, setPresentations } = useState([]);
+  const [students, setStudents] = useState([]);
+  const [presentations, setPresentations] = useState([]);
   const dispatch = useDispatch();
 
   const getScore = (value) => {
@@ -35,7 +35,7 @@ const TableClassroomScores = ({ id, title }) => {
       setStudents(response.data.students);
       setPresentations(response.data.presentations);
       dispatch(saveScores(response.data.events));
-    } else dispatch(setError(response.errors));
+    } else handleError(response.errors);
   }
 
   async function updateScore(event, presentation, student, eventId) {
@@ -51,7 +51,7 @@ const TableClassroomScores = ({ id, title }) => {
         student,
         score,
       }));
-    } else dispatch(setError(response.errors));
+    } else handleError(response.errors);
   }
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const TableClassroomScores = ({ id, title }) => {
 
   return (
     <div className="container-table-scores">
-      {students.length > 0 && presentations.length > 0 && (
+      {students && students.length > 0 && presentations.length > 0 && (
         <div className="table">
           <table>
             <thead className="table-classroom-head">
@@ -83,7 +83,8 @@ const TableClassroomScores = ({ id, title }) => {
                 (presentation) => (
                   <ClassroomRow
                     key={presentation.id}
-                    presentationId={presentation.id}
+                    presentation={presentation}
+                    students={students}
                     handleChange={
                       (event, presentation, student, id) => {
                         updateScore(event, presentation, student, id);
@@ -104,6 +105,7 @@ const TableClassroomScores = ({ id, title }) => {
 TableClassroomScores.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  handleError: PropTypes.func.isRequired,
 };
 
 export default TableClassroomScores;

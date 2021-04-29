@@ -2,8 +2,6 @@
 import * as actions from './actions';
 
 const initialState = {
-  students: [],
-  presentations: [],
   scores: {},
 };
 
@@ -16,8 +14,6 @@ const classroomTableReducer = (state = initialState, action) => {
       state.scores[`${presentation}-${student}`] = { id, score };
       return state;
     }
-    case actions.SAVE_STUDENTS: return { ...state, students: action.payload };
-    case actions.SAVE_PRESENTATIONS: return { ...state, presentations: action.payload };
     case actions.SAVE_SCORES: {
       action.payload.forEach(
         (event) => {
