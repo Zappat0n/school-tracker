@@ -5,7 +5,7 @@ import SignIn from './routes/SignIn/SignIn';
 import SignUp from './routes/SignUp/SignUp';
 import Classrooms from './routes/Classrooms/Classrooms';
 import Students from './routes/Students/Students';
-import ErrorDisplayer from './containers/ErrorDisplayer/ErrorDisplayer';
+import ErrorDisplayer from './components/ErrorDisplayer/ErrorDisplayer';
 import PresentationAreas from './routes/PresentationAreas/PresentationAreas';
 import PresentationSubareas from './routes/PresentationSubareas/PresentationSubareas';
 import ClassroomScores from './routes/ClassroomScores/ClassroomScores';

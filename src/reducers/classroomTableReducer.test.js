@@ -1,6 +1,6 @@
 import { store } from '../setupTests';
 import {
-  saveScore, saveScores, saveStudents, savePresentations,
+  saveScore, saveScores,
 } from './actions';
 
 test('Dispatch Table Classroom data with saveScore action', () => {
@@ -14,18 +14,6 @@ test('Dispatch Table Classroom data with saveScore action', () => {
   expect(Object.keys(store.getState().classroomTableReducer.scores).includes('1-1')).toBe(true);
   expect(store.getState().classroomTableReducer.scores['1-1'].id).toBe(5);
   expect(store.getState().classroomTableReducer.scores['1-1'].score).toBe(1);
-});
-
-test('Dispatch action saveStudents', () => {
-  store.dispatch(saveStudents([1, 2]));
-
-  expect(store.getState().classroomTableReducer.students.length).toBe(2);
-});
-
-test('Dispatch action savePresentations', () => {
-  store.dispatch(savePresentations([1, 2]));
-
-  expect(store.getState().classroomTableReducer.presentations.length).toBe(2);
 });
 
 test('Dispatch action saveScores', () => {

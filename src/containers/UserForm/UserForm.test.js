@@ -6,7 +6,7 @@ import UserForm from './UserForm';
 
 beforeAll(() => renderComponent(
   <>
-    <UserForm action="Log In" />
+    <UserForm action="Log In" handleError={() => {}} />
   </>,
 ));
 
@@ -17,7 +17,7 @@ test('Display title', () => {
 test('Renders Input fields correctly', () => {
   renderComponent(
     <>
-      <UserForm action="Log In" />
+      <UserForm action="Log In" handleError={() => {}} />
     </>,
   );
 
@@ -33,7 +33,7 @@ test('Renders Input fields correctly', () => {
 test('Stock Match SnapShot', () => {
   const tree = rendererForComponent(
     <>
-      <UserForm action="Log In" />
+      <UserForm action="Log In" handleError={() => {}} />
     </>,
   );
   expect(tree).toMatchSnapshot();
