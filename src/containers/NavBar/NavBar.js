@@ -25,15 +25,15 @@ const NavBar = () => {
           {title || 'Welcome'}
         </div>
         <div className="right nav-col ta-right">
-          <Link to="/school-tracker/user/signin" className="link">
+          <Link to="/user/signin" className="link">
             <i className="fas fa-user" />
           </Link>
         </div>
       </div>
       <div className="menu-content d-none">
-        <Link to="/school-tracker/classrooms/" className="link">Classrooms</Link>
-        <Link to="/school-tracker/presentation_areas/" className="link">Curriculum</Link>
-        <Link to="/school-tracker/presentation_subareas/" className="link">Subareas</Link>
+        <Link to="/classrooms/" className="link">Classrooms</Link>
+        <Link to="/presentation_areas/" className="link">Curriculum</Link>
+        <Link to="/presentation_subareas/" className="link">Subareas</Link>
       </div>
     </>
   );

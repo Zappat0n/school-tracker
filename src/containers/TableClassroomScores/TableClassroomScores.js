@@ -68,7 +68,7 @@ const TableClassroomScores = ({ id, title, handleError }) => {
                 {(students ? [{ id: 0 }].concat(students) : []).map(
                   (student, index) => (
                     <th className={`column${index + 1}`} key={student.id}>
-                      <Link to={`/school-tracker/students/${student.id}`} className="head-link">
+                      <Link to={`/students/${student.id}`} className="head-link">
                         {student.name}
                       </Link>
                     </th>
