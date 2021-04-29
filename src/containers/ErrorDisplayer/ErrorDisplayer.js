@@ -4,11 +4,12 @@ import { setError } from '../../reducers/actions';
 import './ErrorDisplayer.scss';
 
 const ErrorDisplayer = () => {
-  const messages = useSelector((state) => state.userReducer.errors || []);
+  const messages = useSelector((state) => state.userReducer.errors);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (messages.length === 0) return null;
+    console.log(messages);
+    if (!messages || messages.length === 0) return null;
 
     const id = setInterval(() => {
       dispatch(setError([]));
@@ -16,9 +17,16 @@ const ErrorDisplayer = () => {
     return () => clearInterval(id);
   });
 
+  const displayErrors = () => {
+    if (messages instanceof Array) {
+      return messages.map((message) => (<p key={message}>{message}</p>));
+    }
+    return messages;
+  };
+
   return (
     <div className="errors">
-      {messages.map((message) => (<p key={message}>{message}</p>))}
+      {displayErrors()}
     </div>
   );
 };

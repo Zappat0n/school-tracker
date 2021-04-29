@@ -20,7 +20,7 @@ export const signUpRequest = (username, password) => new Request(
 );
 
 export const logInRequest = (username, password) => new Request(
-  `${process.env.REACT_APP_SERVER}/auth/login`,
+  `${process.env.REACT_APP_SERVER}/authentications`,
   {
     method: 'POST',
     headers: {
