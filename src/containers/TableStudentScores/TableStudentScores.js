@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTable, changeTitle, setError } from '../../reducers/actions';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { changeTitle, setError } from '../../reducers/actions';
 import { getIndex } from '../../api/queries';
 import { filterKeys, getCommands } from '../Table/TableUtils';
 import Row from './Row';
@@ -10,7 +10,7 @@ import '../Table/Table.scss';
 const TableStudentScores = ({ id, title }) => {
   const request = `/students/${id}`;
   const commands = getCommands(request);
-  const table = useSelector((state) => state.userReducer.tables[request]);
+  const [table, setTable] = useState([]);
   const dispatch = useDispatch();
 
   async function requestData() {
@@ -18,7 +18,7 @@ const TableStudentScores = ({ id, title }) => {
       tableName: request,
       data: await getIndex(request),
     };
-    if (response && response.data) dispatch(addTable(response));
+    if (response && response.data) setTable(response);
     else dispatch(setError(response.errors));
   }
 

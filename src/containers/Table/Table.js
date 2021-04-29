@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import requestTable from './TableQueries';
-import { addTable, changeTitle, setError } from '../../reducers/actions';
+import { changeTitle, setError } from '../../reducers/actions';
 import { filterKeys, getCommands } from './TableUtils';
 import Row from './Row';
 import './Table.scss';
@@ -10,38 +10,38 @@ import './Table.scss';
 const Table = ({ tableName, id, title }) => {
   const request = `${tableName}${id ? `/${id}` : ''}`;
   const commands = getCommands(request);
-  const table = useSelector((state) => state.userReducer.tables[request]);
+  const [table, setTable] = useState([]);
   const dispatch = useDispatch();
 
   async function query() {
     const response = await requestTable(request);
-    if (response && response.data) dispatch(addTable(response));
+    if (response && response.data) setTable(response.data);
     else dispatch(setError(response.errors));
   }
 
-  if (!table) query();
-
   const formatColumn = (text) => (text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()).replace('_', ' ').trim();
 
+  console.log(request);
   useEffect(() => {
+    query();
     dispatch(changeTitle(title));
-  }, []);
+  }, [request]);
 
   return (
     <div className="container-table">
-      {table && table.data && table.data.length > 0 && (
+      {table && table.length > 0 && (
         <div className="table">
           <table>
             <thead className="table-head">
               <tr>
-                {filterKeys(Object.keys(table.data[0])).map((value, index) => (
+                {filterKeys(Object.keys(table[0])).map((value, index) => (
                   <th className={`column${index + 1}`} key={value}>{formatColumn(value)}</th>
                 ))}
                 {commands.length > 0 && <th key="commands">Commands</th>}
               </tr>
             </thead>
             <tbody className="table-body js-pscroll">
-              {table.data.map(
+              {table.map(
                 (row) => (
                   <Row
                     key={row.id}

@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { logIn, signUp } from '../../api/queries';
-import {
-  changeTitle, saveUsername, savePassword, setError,
-} from '../../reducers/actions';
+import { changeTitle, setError, saveUsername } from '../../reducers/actions';
 import REACT_APP_NAME from '../../constants';
 import './UserForm.scss';
 import storage from '../../storage/storage';
@@ -13,7 +11,7 @@ import storage from '../../storage/storage';
 const UserForm = (props) => {
   const { action } = props;
   const username = useSelector((state) => state.userReducer.username);
-  const password = useSelector((state) => state.userReducer.password);
+  const [password, setPassword] = useState('');
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -46,13 +44,11 @@ const UserForm = (props) => {
       const response = await getLogIn(username.value, password.value);
       if (response) {
         history.push(`${REACT_APP_NAME}/classrooms/`);
-        dispatch(savePassword(''));
       }
     } else {
       const response = await getSignUp(username.value, password.value);
       if (response) {
         history.push(`${REACT_APP_NAME}/classrooms/`);
-        dispatch(savePassword(''));
       }
     }
     return false;
@@ -61,7 +57,7 @@ const UserForm = (props) => {
   const handleChange = (event, id) => {
     event.preventDefault();
     if (id === 'username') dispatch(saveUsername(event.target.value));
-    else dispatch(savePassword(event.target.value));
+    else setPassword(event.target.value);
   };
 
   return (

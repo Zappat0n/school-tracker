@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
-  saveScore, savePresentations, saveScores, saveStudents, changeTitle, setError,
+  saveScore, saveScores, changeTitle, setError,
 } from '../../reducers/actions';
 import { getIndex, postEvent, updateEvent } from '../../api/queries';
 import ClassroomRow from './ClassroomRow';
@@ -12,7 +12,8 @@ import './TableClassroomScores.scss';
 
 const TableClassroomScores = ({ id, title }) => {
   const request = `events/${id}`;
-  const table = useSelector((state) => state.classroomTableReducer);
+  const { students, setStudents } = useState([]);
+  const { presentations, setPresentations } = useState([]);
   const dispatch = useDispatch();
 
   const getScore = (value) => {
@@ -31,8 +32,8 @@ const TableClassroomScores = ({ id, title }) => {
       data: await getIndex(request),
     };
     if (response && response.data) {
-      dispatch(saveStudents(response.data.students));
-      dispatch(savePresentations(response.data.presentations));
+      setStudents(response.data.students);
+      setPresentations(response.data.presentations);
       dispatch(saveScores(response.data.events));
     } else dispatch(setError(response.errors));
   }
@@ -60,12 +61,12 @@ const TableClassroomScores = ({ id, title }) => {
 
   return (
     <div className="container-table-scores">
-      {table.students.length > 0 && table.presentations.length > 0 && (
+      {students.length > 0 && presentations.length > 0 && (
         <div className="table">
           <table>
             <thead className="table-classroom-head">
               <tr>
-                {(table.students ? [{ id: 0 }].concat(table.students) : []).map(
+                {(students ? [{ id: 0 }].concat(students) : []).map(
                   (student, index) => (
                     <th className={`column${index + 1}`} key={student.id}>
                       <Link to={`${REACT_APP_NAME}/students/${student.id}`} className="head-link">
@@ -78,7 +79,7 @@ const TableClassroomScores = ({ id, title }) => {
             </thead>
             <tbody className="table-classroom-body">
               {
-              (table.presentations ? table.presentations.slice(0, 10) : []).map(
+              (presentations ? presentations.slice(0, 10) : []).map(
                 (presentation) => (
                   <ClassroomRow
                     key={presentation.id}
