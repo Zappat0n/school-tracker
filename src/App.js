@@ -16,7 +16,7 @@ App.defaultProps = {
 };
 
 App.propTypes = {
-  errors: PropTypes.string,
+  errors: PropTypes.instanceOf(Object),
   setErrors: PropTypes.func.isRequired,
 };
 

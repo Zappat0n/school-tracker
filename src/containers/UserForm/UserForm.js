@@ -42,12 +42,12 @@ const UserForm = (props) => {
     if (action === 'Log In') {
       const response = await getLogIn(username.value, password.value);
       if (response) {
-        history.push('/classrooms/');
+        history.push('/school-tracker/classrooms/');
       }
     } else {
       const response = await getSignUp(username.value, password.value);
       if (response) {
-        history.push('/classrooms/');
+        history.push('/school-tracker/classrooms/');
       }
     }
     return false;
@@ -78,7 +78,7 @@ const UserForm = (props) => {
           {action}
         </button>
         <div className="link-container">
-          {action === 'Log In' ? <Link to="/user/signup" className="link">Sign up</Link> : <Link to="/user/signin" className="link">Log In</Link> }
+          {action === 'Log In' ? <Link to="/school-tracker/user/signup" className="link">Sign up</Link> : <Link to="/school-tracker/user/signin" className="link">Log In</Link> }
         </div>
       </section>
     </form>
