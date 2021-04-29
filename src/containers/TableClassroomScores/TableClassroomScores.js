@@ -7,7 +7,6 @@ import {
 } from '../../reducers/actions';
 import { getIndex, postEvent, updateEvent } from '../../api/queries';
 import ClassroomRow from './ClassroomRow';
-import REACT_APP_NAME from '../../constants';
 import './TableClassroomScores.scss';
 
 const TableClassroomScores = ({ id, title, handleError }) => {
@@ -69,7 +68,7 @@ const TableClassroomScores = ({ id, title, handleError }) => {
                 {(students ? [{ id: 0 }].concat(students) : []).map(
                   (student, index) => (
                     <th className={`column${index + 1}`} key={student.id}>
-                      <Link to={`${REACT_APP_NAME}/students/${student.id}`} className="head-link">
+                      <Link to={`/students/${student.id}`} className="head-link">
                         {student.name}
                       </Link>
                     </th>
