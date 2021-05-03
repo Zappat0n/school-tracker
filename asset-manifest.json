@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/school-tracker/static/css/main.54fe864c.chunk.css",
-    "main.js": "/school-tracker/static/js/main.45bb99c4.chunk.js",
-    "main.js.map": "/school-tracker/static/js/main.45bb99c4.chunk.js.map",
+    "main.js": "/school-tracker/static/js/main.e4102227.chunk.js",
+    "main.js.map": "/school-tracker/static/js/main.e4102227.chunk.js.map",
     "runtime-main.js": "/school-tracker/static/js/runtime-main.aa958c10.js",
     "runtime-main.js.map": "/school-tracker/static/js/runtime-main.aa958c10.js.map",
-    "static/js/2.6394e59b.chunk.js": "/school-tracker/static/js/2.6394e59b.chunk.js",
-    "static/js/2.6394e59b.chunk.js.map": "/school-tracker/static/js/2.6394e59b.chunk.js.map",
+    "static/js/2.4813b1b2.chunk.js": "/school-tracker/static/js/2.4813b1b2.chunk.js",
+    "static/js/2.4813b1b2.chunk.js.map": "/school-tracker/static/js/2.4813b1b2.chunk.js.map",
     "index.html": "/school-tracker/index.html",
     "static/css/main.54fe864c.chunk.css.map": "/school-tracker/static/css/main.54fe864c.chunk.css.map",
-    "static/js/2.6394e59b.chunk.js.LICENSE.txt": "/school-tracker/static/js/2.6394e59b.chunk.js.LICENSE.txt",
+    "static/js/2.4813b1b2.chunk.js.LICENSE.txt": "/school-tracker/static/js/2.4813b1b2.chunk.js.LICENSE.txt",
     "static/media/TableClassroomScores.scss": "/school-tracker/static/media/FreeSans.028215fb.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.aa958c10.js",
-    "static/js/2.6394e59b.chunk.js",
+    "static/js/2.4813b1b2.chunk.js",
     "static/css/main.54fe864c.chunk.css",
-    "static/js/main.45bb99c4.chunk.js"
+    "static/js/main.e4102227.chunk.js"
   ]
 }
