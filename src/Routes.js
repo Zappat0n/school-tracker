@@ -12,22 +12,82 @@ import StudentScores from './routes/StudentScores/StudentScores';
 
 const Routes = () => {
   const [errors, setErrors] = useState([]);
+  const [title, setTitle] = useState();
   return (
     <BrowserRouter basename="/school-tracker/">
       <Switch>
         <Route path="/">
-          <App messages={errors} setErrors={(messages) => setErrors(messages)} />
-          <Route path="/user/signin"><SignIn setErrors={(messages) => setErrors(messages)} /></Route>
-          <Route path="/user/signup"><SignUp setErrors={(messages) => setErrors(messages)} /></Route>
-          <Route exact path="/classrooms"><Classrooms setErrors={(messages) => setErrors(messages)} /></Route>
-          <Route exact path="/classrooms/:id"><Classrooms setErrors={(messages) => setErrors(messages)} /></Route>
-          <Route exact path="/students"><Students setErrors={(messages) => setErrors(messages)} /></Route>
-          <Route exact path="/presentation_areas"><PresentationAreas setErrors={(messages) => setErrors(messages)} /></Route>
-          <Route path="/presentation_areas/:id"><PresentationAreas setErrors={(messages) => setErrors(messages)} /></Route>
-          <Route exact path="/presentation_subareas"><PresentationSubareas setErrors={(messages) => setErrors(messages)} /></Route>
-          <Route path="/presentation_subareas/:id"><PresentationSubareas setErrors={(messages) => setErrors(messages)} /></Route>
-          <Route path="/events/:id"><ClassroomScores setErrors={(messages) => setErrors(messages)} /></Route>
-          <Route path="/students/:id"><StudentScores setErrors={(messages) => setErrors(messages)} /></Route>
+          <App
+            messages={errors}
+            title={title}
+            setErrors={(messages) => setErrors(messages)}
+          />
+          <Route path="/user/signin">
+            <SignIn
+              setErrors={(messages) => setErrors(messages)}
+              setTitle={(text) => setTitle(text)}
+            />
+          </Route>
+          <Route path="/user/signup">
+            <SignUp
+              setErrors={(messages) => setErrors(messages)}
+              setTitle={(text) => setTitle(text)}
+            />
+          </Route>
+          <Route exact path="/classrooms">
+            <Classrooms
+              setErrors={(messages) => setErrors(messages)}
+              setTitle={(text) => setTitle(text)}
+            />
+          </Route>
+          <Route exact path="/classrooms/:id">
+            <Classrooms
+              setErrors={(messages) => setErrors(messages)}
+              setTitle={(text) => setTitle(text)}
+            />
+          </Route>
+          <Route exact path="/students">
+            <Students
+              setErrors={(messages) => setErrors(messages)}
+              setTitle={(text) => setTitle(text)}
+            />
+          </Route>
+          <Route exact path="/presentation_areas">
+            <PresentationAreas
+              setErrors={(messages) => setErrors(messages)}
+              setTitle={(text) => setTitle(text)}
+            />
+          </Route>
+          <Route path="/presentation_areas/:id">
+            <PresentationAreas
+              setErrors={(messages) => setErrors(messages)}
+              setTitle={(text) => setTitle(text)}
+            />
+          </Route>
+          <Route exact path="/presentation_subareas">
+            <PresentationSubareas
+              setErrors={(messages) => setErrors(messages)}
+              setTitle={(text) => setTitle(text)}
+            />
+          </Route>
+          <Route path="/presentation_subareas/:id">
+            <PresentationSubareas
+              setErrors={(messages) => setErrors(messages)}
+              setTitle={(text) => setTitle(text)}
+            />
+          </Route>
+          <Route path="/events/:id">
+            <ClassroomScores
+              setErrors={(messages) => setErrors(messages)}
+              setTitle={(text) => setTitle(text)}
+            />
+          </Route>
+          <Route path="/students/:id">
+            <StudentScores
+              setErrors={(messages) => setErrors(messages)}
+              setTitle={(text) => setTitle(text)}
+            />
+          </Route>
         </Route>
       </Switch>
     </BrowserRouter>

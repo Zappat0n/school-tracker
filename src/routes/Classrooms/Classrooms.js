@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Table from '../../containers/Table/Table';
+import Table from '../../components/Table/Table';
 
-const Classrooms = ({ setErrors }) => {
+const Classrooms = ({ setErrors, setTitle }) => {
   const { id } = useParams();
+  useEffect(() => setTitle(id ? 'Students' : 'Classrooms'), []);
 
   return (
     <>
@@ -11,7 +13,6 @@ const Classrooms = ({ setErrors }) => {
         tableName="classrooms"
         id={id}
         handleError={(messages) => setErrors(messages)}
-        title={id ? 'Students' : 'Classrooms'}
         commands={
         [
           {
@@ -31,6 +32,7 @@ const Classrooms = ({ setErrors }) => {
 
 Classrooms.propTypes = {
   setErrors: PropTypes.func.isRequired,
+  setTitle: PropTypes.func.isRequired,
 };
 
 export default Classrooms;

@@ -2,14 +2,12 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {
-  saveScore, saveScores, changeTitle,
-} from '../../reducers/actions';
+import { saveScore, saveScores } from '../../reducers/actions';
 import { getIndex, postEvent, updateEvent } from '../../api/queries';
 import ClassroomRow from './ClassroomRow';
 import './TableClassroomScores.scss';
 
-const TableClassroomScores = ({ id, title, handleError }) => {
+const TableClassroomScores = ({ id, handleError }) => {
   const request = `events/${id}`;
   const [students, setStudents] = useState([]);
   const [presentations, setPresentations] = useState([]);
@@ -54,7 +52,6 @@ const TableClassroomScores = ({ id, title, handleError }) => {
   }
 
   useEffect(() => {
-    dispatch(changeTitle(title));
     requestData();
   }, []);
 
@@ -103,7 +100,6 @@ const TableClassroomScores = ({ id, title, handleError }) => {
 
 TableClassroomScores.propTypes = {
   id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
   handleError: PropTypes.func.isRequired,
 };
 

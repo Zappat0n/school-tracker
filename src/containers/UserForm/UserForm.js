@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { logIn, signUp } from '../../api/queries';
-import { changeTitle, saveUsername } from '../../reducers/actions';
+import { saveUsername } from '../../reducers/actions';
 import './UserForm.scss';
 import storage from '../../storage/storage';
 
@@ -23,10 +23,6 @@ const UserForm = (props) => {
     handleError(response.errors);
     return false;
   }
-
-  useEffect(() => {
-    dispatch(changeTitle(action));
-  }, []);
 
   async function getSignUp(username, password) {
     const response = await signUp(username, password);

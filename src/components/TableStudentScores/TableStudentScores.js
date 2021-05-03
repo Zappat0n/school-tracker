@@ -1,17 +1,14 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { changeTitle } from '../../reducers/actions';
 import { getIndex } from '../../api/queries';
 import { filterKeys, getCommands } from '../Table/TableUtils';
 import Row from './Row';
 import '../Table/Table.scss';
 
-const TableStudentScores = ({ id, title, handleError }) => {
+const TableStudentScores = ({ id, handleError }) => {
   const request = `/students/${id}`;
   const commands = getCommands(request);
   const [table, setTable] = useState([]);
-  const dispatch = useDispatch();
 
   async function requestData() {
     const response = {
@@ -25,7 +22,6 @@ const TableStudentScores = ({ id, title, handleError }) => {
   const formatColumn = (text) => (text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()).replace('_', ' ').trim();
 
   useEffect(() => {
-    dispatch(changeTitle(title));
     requestData();
   }, []);
 
@@ -66,7 +62,6 @@ TableStudentScores.defaultProps = {
 
 TableStudentScores.propTypes = {
   id: PropTypes.string,
-  title: PropTypes.string.isRequired,
   handleError: PropTypes.func.isRequired,
 };
 

@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import TableStudentScores from '../../containers/TableStudentScores/TableStudentScores';
+import { useEffect } from 'react';
+import TableStudentScores from '../../components/TableStudentScores/TableStudentScores';
 
-const StudentScores = ({ setErrors }) => {
+const StudentScores = ({ setErrors, setTitle }) => {
   const { id } = useParams();
+  useEffect(() => setTitle('Students scores'), []);
+
   return (
     <>
       <TableStudentScores
         id={id}
-        title="Student scores"
         handleError={(messages) => setErrors(messages)}
       />
     </>
@@ -17,6 +19,7 @@ const StudentScores = ({ setErrors }) => {
 
 StudentScores.propTypes = {
   setErrors: PropTypes.func.isRequired,
+  setTitle: PropTypes.func.isRequired,
 };
 
 export default StudentScores;

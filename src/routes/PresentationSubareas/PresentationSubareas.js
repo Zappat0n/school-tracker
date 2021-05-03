@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
-import Table from '../../containers/Table/Table';
+import { useEffect } from 'react';
+import Table from '../../components/Table/Table';
 
-const PresentationSubareas = ({ setErrors }) => {
+const PresentationSubareas = ({ setErrors, setTitle }) => {
   const { id } = useParams();
+  useEffect(() => setTitle(id ? 'Presentations' : 'Presentation Subareas'), []);
+
   return (
     <>
       <Table
         tableName="presentation_subareas"
         id={id}
-        title={id ? 'Presentations' : 'Presentation Subareas'}
         handleError={(messages) => setErrors(messages)}
       />
     </>
@@ -18,6 +20,7 @@ const PresentationSubareas = ({ setErrors }) => {
 
 PresentationSubareas.propTypes = {
   setErrors: PropTypes.func.isRequired,
+  setTitle: PropTypes.func.isRequired,
 };
 
 export default PresentationSubareas;

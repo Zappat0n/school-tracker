@@ -1,19 +1,14 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import requestTable from './TableQueries';
-import { changeTitle } from '../../reducers/actions';
 import { filterKeys, getCommands } from './TableUtils';
 import Row from './Row';
 import './Table.scss';
 
-const Table = ({
-  tableName, id, title, handleError,
-}) => {
+const Table = ({ tableName, id, handleError }) => {
   const request = `${tableName}${id ? `/${id}` : ''}`;
   const commands = getCommands(request);
   const [table, setTable] = useState([]);
-  const dispatch = useDispatch();
 
   async function query() {
     const response = await requestTable(request);
@@ -25,7 +20,6 @@ const Table = ({
 
   useEffect(() => {
     query();
-    dispatch(changeTitle(title));
   }, [request]);
 
   return (
@@ -66,7 +60,6 @@ Table.defaultProps = {
 Table.propTypes = {
   tableName: PropTypes.string.isRequired,
   id: PropTypes.string,
-  title: PropTypes.string.isRequired,
   handleError: PropTypes.func.isRequired,
 };
 
