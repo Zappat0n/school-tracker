@@ -50,7 +50,7 @@ exports[`Stock Match SnapShot 1`] = `
     >
       <a
         className="link"
-        href="/school-tracker/user/signup"
+        href="/user/signup"
         onClick={[Function]}
       >
         Sign up

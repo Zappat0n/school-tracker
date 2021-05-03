@@ -7,7 +7,7 @@ import NavBar from './NavBar';
 test('Renders Input fields correctly', () => {
   renderComponent(
     <>
-      <NavBar />
+      <NavBar title="Welcome" />
     </>,
   );
 
@@ -20,7 +20,7 @@ test('Renders Input fields correctly', () => {
 test('NavBar Match SnapShot', () => {
   const tree = rendererForComponent(
     <>
-      <NavBar />
+      <NavBar title="Log In" />
     </>,
   );
   expect(tree).toMatchSnapshot();

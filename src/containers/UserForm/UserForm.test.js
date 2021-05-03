@@ -6,18 +6,18 @@ import UserForm from './UserForm';
 
 beforeAll(() => renderComponent(
   <>
-    <UserForm action="Log In" handleError={() => {}} />
+    <UserForm action="Log In" handleError={() => {}} title="Log In" />
   </>,
 ));
 
 test('Display title', () => {
-  expect(store.getState().userReducer.title).toBe('Log In');
+  expect(screen.getByText('Log In')).toBeInTheDocument();
 });
 
 test('Renders Input fields correctly', () => {
   renderComponent(
     <>
-      <UserForm action="Log In" handleError={() => {}} />
+      <UserForm action="Log In" handleError={() => {}} title="Log In" />
     </>,
   );
 
@@ -33,7 +33,7 @@ test('Renders Input fields correctly', () => {
 test('Stock Match SnapShot', () => {
   const tree = rendererForComponent(
     <>
-      <UserForm action="Log In" handleError={() => {}} />
+      <UserForm action="Log In" handleError={() => {}} title="Log In" />
     </>,
   );
   expect(tree).toMatchSnapshot();

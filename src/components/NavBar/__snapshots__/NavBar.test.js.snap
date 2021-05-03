@@ -20,14 +20,14 @@ Array [
     <div
       className="center nav-col ta-center"
     >
-      Welcome
+      Log In
     </div>
     <div
       className="right nav-col ta-right"
     >
       <a
         className="link"
-        href="/school-tracker/user/signin"
+        href="/user/signin"
         onClick={[Function]}
       >
         <i
@@ -41,21 +41,21 @@ Array [
   >
     <a
       className="link"
-      href="/school-tracker/classrooms/"
+      href="/classrooms/"
       onClick={[Function]}
     >
       Classrooms
     </a>
     <a
       className="link"
-      href="/school-tracker/presentation_areas/"
+      href="/presentation_areas/"
       onClick={[Function]}
     >
       Curriculum
     </a>
     <a
       className="link"
-      href="/school-tracker/presentation_subareas/"
+      href="/presentation_subareas/"
       onClick={[Function]}
     >
       Subareas
