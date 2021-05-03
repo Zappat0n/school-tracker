@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { screen } from '@testing-library/react';
-import { renderComponent, rendererForComponent, store } from '../../setupTests';
+import { renderComponent, rendererForComponent } from '../../setupTests';
 import UserForm from './UserForm';
 
 beforeAll(() => renderComponent(
