@@ -1,9 +1,8 @@
+import API_SERVER from '../constants';
 import storage from '../storage/storage';
 
-require('dotenv').config();
-
 export const signUpRequest = (username, password) => new Request(
-  `${process.env.REACT_APP_SERVER}/users`,
+  `${API_SERVER}/users`,
   {
     method: 'POST',
     headers: {
@@ -20,7 +19,7 @@ export const signUpRequest = (username, password) => new Request(
 );
 
 export const logInRequest = (username, password) => new Request(
-  `${process.env.REACT_APP_SERVER}/authentications`,
+  `${API_SERVER}/authentications`,
   {
     method: 'POST',
     headers: {
@@ -34,7 +33,7 @@ export const logInRequest = (username, password) => new Request(
 );
 
 export const logOutRequest = (username, password) => new Request(
-  `${process.env.REACT_APP_SERVER}/oauth/revoke`,
+  `${API_SERVER}/oauth/revoke`,
   {
     method: 'POST',
     headers: {
@@ -49,7 +48,7 @@ export const logOutRequest = (username, password) => new Request(
 );
 
 export const postEventRequest = (date, student, presentation, score) => new Request(
-  `${process.env.REACT_APP_SERVER}/events`,
+  `${API_SERVER}/events`,
   {
     method: 'POST',
     headers: {
@@ -66,7 +65,7 @@ export const postEventRequest = (date, student, presentation, score) => new Requ
 );
 
 export const updateEventRequest = (id, date, student, presentation, score) => new Request(
-  `${process.env.REACT_APP_SERVER}/events/${id}`,
+  `${API_SERVER}/events/${id}`,
   {
     method: 'PUT',
     headers: {
@@ -83,7 +82,7 @@ export const updateEventRequest = (id, date, student, presentation, score) => ne
 );
 
 export const getIndexRequest = (controller) => new Request(
-  `${process.env.REACT_APP_SERVER}/${controller}`,
+  `${API_SERVER}/${controller}`,
   {
     method: 'GET',
     headers: {
