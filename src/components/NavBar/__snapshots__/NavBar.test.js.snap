@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar Match SnapShot 1`] = `
+Array [
+  <div
+    className="nav-bar"
+  >
+    <div
+      className="left nav-col ta-left"
+    >
+      <i
+        className="fas fa-bars"
+        id="menu-toggle"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="menubar"
+        tabIndex={0}
+      />
+    </div>
+    <div
+      className="center nav-col ta-center"
+    >
+      Log In
+    </div>
+    <div
+      className="right nav-col ta-right"
+    >
+      <a
+        className="link"
+        href="/user/signin"
+        onClick={[Function]}
+      >
+        <i
+          className="fas fa-user"
+        />
+      </a>
+    </div>
+  </div>,
+  <div
+    className="menu-content d-none"
+  >
+    <a
+      className="link"
+      href="/classrooms/"
+      onClick={[Function]}
+    >
+      Classrooms
+    </a>
+    <a
+      className="link"
+      href="/presentation_areas/"
+      onClick={[Function]}
+    >
+      Curriculum
+    </a>
+    <a
+      className="link"
+      href="/presentation_subareas/"
+      onClick={[Function]}
+    >
+      Subareas
+    </a>
+  </div>,
+]
+`;

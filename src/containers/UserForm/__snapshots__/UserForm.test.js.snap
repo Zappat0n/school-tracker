@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stock Match SnapShot 1`] = `
+<form
+  className="user-form table"
+  onSubmit={[Function]}
+>
+  <section
+    className="username"
+  >
+    <label
+      htmlFor="username"
+    >
+      Username
+      <input
+        id="username"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+  </section>
+  <section
+    className="password"
+  >
+    <label
+      htmlFor="password"
+    >
+      Password
+      <input
+        autoComplete="on"
+        id="password"
+        onChange={[Function]}
+        type="password"
+        value=""
+      />
+    </label>
+  </section>
+  <section
+    className="buttons"
+  >
+    <button
+      className="submit"
+      type="submit"
+    >
+      Log In
+    </button>
+    <div
+      className="link-container"
+    >
+      <a
+        className="link"
+        href="/user/signup"
+        onClick={[Function]}
+      >
+        Sign up
+      </a>
+    </div>
+  </section>
+</form>
+`;

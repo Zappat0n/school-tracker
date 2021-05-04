@@ -1,38 +1,46 @@
-import { getBooksRequest, createBookRequest, deleteBookRequest } from './requests';
-
-const displayError = (error) => {
-  const container = document.querySelector('.errors');
-  if (container.innerHTML === '') {
-    const display = document.createElement('h5');
-    display.innerText = error;
-    container.appendChild(display);
-    setTimeout(() => {
-      const container = document.querySelector('.errors');
-      container.innerHTML = '';
-    }, 3000);
-  }
-};
+import {
+  signUpRequest, logInRequest, logOutRequest, getIndexRequest, postEventRequest, updateEventRequest,
+} from './requests';
 
 async function query(request) {
   try {
     const response = await fetch(request);
-    return (response ? response.json() : response);
+    const json = await response.json();
+    return json;
   } catch (error) {
-    displayError(error);
     return null;
   }
 }
 
-async function getBooks() {
-  return query(getBooksRequest());
+const logIn = async (username, password) => query(logInRequest(username, password));
+
+async function signUp(username, password) {
+  const response = await query(signUpRequest(username, password));
+  return response;
 }
 
-async function createBook(book) {
-  return query(createBookRequest(book));
+async function getIndex(controller) {
+  const request = getIndexRequest(controller);
+  const response = await query(request);
+  return response;
 }
 
-async function deleteBook(title) {
-  return query(deleteBookRequest(title));
+async function postEvent(date, student, presentation, score) {
+  const request = postEventRequest(date, student, presentation, score);
+  const response = await query(request);
+  return response;
 }
 
-export { getBooks, createBook, deleteBook };
+async function updateEvent(id, date, student, presentation, score) {
+  const request = updateEventRequest(id, date, student, presentation, score);
+  const response = await query(request);
+  return response;
+}
+
+async function logOut(username, password) {
+  return query(logOutRequest(username, password));
+}
+
+export {
+  logIn, signUp, logOut, getIndex, postEvent, updateEvent,
+};

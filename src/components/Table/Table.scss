@@ -1,0 +1,63 @@
+@import "../../index.scss";
+
+.container-table {
+  @include responsive;
+
+  margin: 0 auto;
+  background: #fff;
+}
+
+.table-head {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+thead,
+tbody {
+  width: 100%;
+}
+
+.table {
+  margin: 2rem auto;
+  border-radius: 1rem;
+  font-family: 'Free Sans', sans-serif;
+  background-color: #fff;
+  width: 100%;
+  overflow: hidden;
+  -moz-box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+  -o-box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+  -ms-box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
+
+  th {
+    @include big-font;
+
+    color: #fff;
+    text-align: center;
+    background-color: $primary-blue;
+  }
+
+  td {
+    @include small-font;
+
+    text-align: center;
+  }
+
+  .table-body tr:nth-child(even) {
+    background-color: #f8f6ff;
+  }
+}
+
+.row:hover {
+  background: lightgray !important;
+}
+
+.column1 {
+  padding-left: 0.5rem;
+}

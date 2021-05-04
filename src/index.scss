@@ -1,0 +1,124 @@
+$primary-blue: rgb(98, 181, 229);
+$primary-grayish-blue: rgb(103, 137, 156);
+$primary-green: rgb(173, 220, 145);
+
+@font-face {
+  font-family: 'Free Sans';
+  src: url("./assets/FreeSans.ttf") format('truetype');
+}
+
+@mixin responsive {
+  width: 95% !important;
+
+  @media (min-width: 768px) {
+    width: 85% !important;
+  }
+
+  @media (min-width: 1024px) {
+    width: 80% !important;
+  }
+}
+
+@mixin responsive-mini {
+  width: 80% !important;
+
+  @media (min-width: 768px) {
+    width: 50% !important;
+  }
+
+  @media (min-width: 1024px) {
+    width: 40% !important;
+  }
+}
+
+@mixin big-font {
+  font: normal normal 700 1rem/1.5rem 'Free Sans', sans-serif;
+
+  @media (min-width: 768px) {
+    font: normal normal 700 1.25rem/2rem 'Free Sans', sans-serif;
+  }
+
+  @media (min-width: 1024px) {
+    font: normal normal 700 1.5rem/3rem 'Free Sans', sans-serif;
+  }
+}
+
+@mixin small-font {
+  font: normal normal 400 0.75rem/1rem 'Free Sans', sans-serif;
+
+  @media (min-width: 768px) {
+    font: normal normal 400 1rem/1.5rem 'Free Sans', sans-serif;
+  }
+
+  @media (min-width: 1024px) {
+    font: normal normal 400 1.25rem/2rem 'Free Sans', sans-serif;
+  }
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Courier New',
+    monospace;
+}
+
+a {
+  margin: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  text-decoration: none;
+}
+
+a:focus {
+  outline: none !important;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.ta-left {
+  text-align: left;
+}
+
+.ta-right {
+  text-align: right;
+}
+
+.d-none {
+  display: none;
+}
+
+.row-link {
+  color: $primary-blue;
+  font-weight: 700;
+  text-decoration: underline;
+  padding: 0 0.5rem;
+}

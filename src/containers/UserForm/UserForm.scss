@@ -1,0 +1,59 @@
+@import "../../index.scss";
+
+.user-form {
+  @include responsive-mini;
+
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font: normal normal 700 1.5rem/2.5rem 'Free Sans', sans-serif;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $primary-blue;
+
+    input {
+      border: 1px solid $primary-blue;
+      border-radius: 0.25rem;
+      color: $primary-blue;
+      font: normal normal 700 1rem/1.5rem 'Free Sans', sans-serif;
+    }
+  }
+
+  .submit {
+    background: $primary-blue;
+    margin: 0 auto;
+    margin-top: 1rem !important;
+    border-radius: 0.5rem;
+    width: 40%;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .submit:hover {
+    cursor: pointer;
+  }
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 0 auto;
+  }
+
+  .link-container {
+    width: 40%;
+  }
+
+  .link {
+    padding: 0 1rem;
+    text-decoration: underline;
+    color: $primary-blue;
+  }
+}

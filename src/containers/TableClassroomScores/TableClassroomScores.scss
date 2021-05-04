@@ -1,0 +1,38 @@
+@import "../../index.scss";
+
+.container-table-scores {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.table {
+  @media (max-width: 768px) {
+    overflow: scroll;
+  }
+}
+
+.table-classroom-head {
+  th {
+    @include small-font;
+  }
+
+  .head-link {
+    color: white;
+    font-weight: 700;
+  }
+}
+
+.table-classroom-body {
+  td,
+  .combo {
+    @include small-font;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8f6ff;
+  }
+
+  .row:hover {
+    background: lightgray !important;
+  }
+}

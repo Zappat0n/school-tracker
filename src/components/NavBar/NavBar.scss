@@ -1,0 +1,46 @@
+@import "../../index.scss";
+
+.nav-col {
+  width: 33%;
+}
+
+.nav-bar {
+  display: flex;
+  background: $primary-blue;
+
+  @include big-font;
+
+  color: white;
+  padding: 0 1rem;
+
+  button {
+    background: $primary-blue;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  button:hover,
+  #menu-toggle:hover {
+    cursor: pointer;
+  }
+
+  a {
+    color: white;
+  }
+}
+
+.menu-content {
+  width: 100%;
+  background: white;
+
+  @include big-font;
+
+  border-bottom: 1px solid $primary-blue;
+
+  a {
+    padding: 0 1rem;
+    color: $primary-blue;
+  }
+}

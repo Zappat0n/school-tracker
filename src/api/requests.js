@@ -1,25 +1,92 @@
-export const getBooksRequest = () => new Request(
-  'https://infinite-woodland-11668.herokuapp.com/books/index/',
+import API_SERVER from '../constants';
+import storage from '../storage/storage';
+
+export const signUpRequest = (username, password) => new Request(
+  `${API_SERVER}/users`,
+  {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: `{
+      "user" : {
+        "username" : "${username}",
+        "password" : "${password}",
+        "password_confirmation" : "${password}"
+      }
+    }`,
+  },
+);
+
+export const logInRequest = (username, password) => new Request(
+  `${API_SERVER}/authentications`,
+  {
+    method: 'POST',
+    headers: {
+      'content-Type': 'application/json',
+    },
+    body: `{
+      "username" : "${username}",
+      "password" : "${password}"
+    }`,
+  },
+);
+
+export const logOutRequest = (username, password) => new Request(
+  `${API_SERVER}/oauth/revoke`,
+  {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${Buffer.from(`${username}:${password}`).toString('base64')}`,
+    },
+    body: JSON.stringify({
+      token: storage.load(),
+      client_id: process.env.REACT_APP_CLIENT_ID,
+      client_secret: process.env.REACT_APP_CLIENT_SECRET,
+    }),
+  },
+);
+
+export const postEventRequest = (date, student, presentation, score) => new Request(
+  `${API_SERVER}/events`,
+  {
+    method: 'POST',
+    headers: {
+      'content-Type': 'application/json',
+      Authorization: `Bearer ${storage.load()}`,
+    },
+    body: `{
+      "date" : "${date}",
+      "student_id" : ${student},
+      "presentation_id" : ${presentation},
+      "score" : ${score}
+    }`,
+  },
+);
+
+export const updateEventRequest = (id, date, student, presentation, score) => new Request(
+  `${API_SERVER}/events/${id}`,
+  {
+    method: 'PUT',
+    headers: {
+      'content-Type': 'application/json',
+      Authorization: `Bearer ${storage.load()}`,
+    },
+    body: `{
+      "date" : "${date}",
+      "student_id" : ${student},
+      "presentation_id" : ${presentation},
+      "score" : ${score}
+    }`,
+  },
+);
+
+export const getIndexRequest = (controller) => new Request(
+  `${API_SERVER}/${controller}`,
   {
     method: 'GET',
-    mode: 'no-cors',
     headers: {
-      'Content-Type': 'application/json',
+      Authorization: `Bearer ${storage.load()}`,
     },
-  },
-);
-
-export const createBookRequest = (book) => new Request(
-  `https://infinite-woodland-11668.herokuapp.com/books?title=${book.title}&author=${book.author}&category=${book.category}`,
-  {
-    mode: 'no-cors',
-    method: 'POST',
-  },
-);
-
-export const deleteBookRequest = (title) => new Request(
-  `https://infinite-woodland-11668.herokuapp.com/books?title=${title}`,
-  {
-    method: 'DELETE',
   },
 );
